@@ -30,13 +30,18 @@ public class Storage
         return _userBalance[resourceType];
     }
 
-    public void AddResource(ResourceType resourceType,int amount) {
-        _userBalance[resourceType] += amount;
+    public bool AddResource(ResourceType resourceType,int amount) {
+        if (amount > 0) {
+            _userBalance[resourceType] += amount;
+            return true;
+        }
+
+        return false;
     }
 
     
     public bool UseResources(ResourceType resourceType, int amount) {
-        if (_userBalance[resourceType] < amount) {
+        if (_userBalance[resourceType] > amount) {
             _userBalance[resourceType] -= amount;
             return true;
         }

@@ -14,10 +14,7 @@ public class FleetModel : MonoBehaviour
     private void Awake()
     {
         if (storageConfiguration == null) { Debug.LogError("Make sure that the Fleet model has Storage configuration set up"); }
-
-
         fleetResourses = new Storage(storageConfiguration.gold, storageConfiguration.oranges, storageConfiguration.wood);
-
         Debug.Log(fleetResourses.getBalance(ResourceType.Gold));
     }
 
