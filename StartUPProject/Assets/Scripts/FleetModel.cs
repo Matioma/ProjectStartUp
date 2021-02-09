@@ -16,9 +16,6 @@ public class FleetModel : MonoBehaviour, IExpanding
     Storage fleetResourses;
 
 
-    [SerializeField]
-    ShipFactory shipFactoryConfig;
-
     private void Awake()
     {
         if (storageConfiguration == null) { Debug.LogError("Make sure that the Fleet model has Storage configuration set up"); }
