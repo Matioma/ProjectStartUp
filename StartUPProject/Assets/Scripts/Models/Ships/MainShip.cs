@@ -20,6 +20,7 @@ public class MainShip : Ship
 
     public override IShipActions CreateShip(FleetModel fleetModel)
     {
-        throw new System.NotImplementedException();
+        return new MainShip();
+        //throw new System.NotImplementedException();
     }
 }

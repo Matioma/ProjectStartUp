@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 public enum ShipTypes { 
+    None,
     MainShip,
     StorageShip,
     DefenceShip,

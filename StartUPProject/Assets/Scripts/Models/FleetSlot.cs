@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IExpanding
+public class FleetSlot : MonoBehaviour
 {
-    void AddShip(ShipTypes shipType);
+ 
 }
