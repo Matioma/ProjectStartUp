@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IExpanding
 {
-    void AddShip();
+    void AddShip(ShipTypes shipType);
 }
