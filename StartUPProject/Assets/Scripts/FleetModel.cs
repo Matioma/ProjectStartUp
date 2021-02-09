@@ -11,6 +11,10 @@ public class FleetModel : MonoBehaviour
 
     Storage fleetResourses;
 
+
+    List<ShipSlot> shipSlots; 
+
+
     private void Awake()
     {
         if (storageConfiguration == null) { Debug.LogError("Make sure that the Fleet model has Storage configuration set up"); }
