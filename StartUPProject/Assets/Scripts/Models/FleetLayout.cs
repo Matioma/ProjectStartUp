@@ -35,7 +35,7 @@ public class FleetLayout : MonoBehaviour
 
     public void RemoveShip(IShipActions shipActions) {
         foreach (var fleetSlot in fleetSlots) {
-            fleetSlot.FreeSlot(shipActions);
+            fleetSlot.TryFreeSlot(shipActions);
         }
     }
 

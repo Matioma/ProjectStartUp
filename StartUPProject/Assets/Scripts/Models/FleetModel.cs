@@ -20,12 +20,6 @@ public class FleetModel : MonoBehaviour, IFleetAction
     Storage fleetResourses;
     public Storage FleetResources { get { return fleetResourses; } }
 
-
-
-
-    List<IShipActions> allShips = new List<IShipActions>();
-
-
     FleetLayout fleetLayout;
 
 
@@ -70,6 +64,9 @@ public class FleetModel : MonoBehaviour, IFleetAction
             case ShipTypes.TrainingShip:
                 newShip = new TrainingShip().CreateShip(this);
                 shipAdded= fleetLayout.FillSlot(newShip, shipFactoryConfiguration.TrainingShipPrefab, shipType);
+                
+
+                
                 break;
             default:
                 Debug.LogError("Unkown Ship Type");
@@ -82,8 +79,9 @@ public class FleetModel : MonoBehaviour, IFleetAction
         }
     }
 
-
-    public void RemoveShip(IShipActions ship) { 
+    private void removeShip(IShipActions ship) {
+        if (ship == null) return; 
+        fleetLayout.RemoveShip(ship);
     }
     public void IncreaseFleetLevel() {
         fleetLevel++;

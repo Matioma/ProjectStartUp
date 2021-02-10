@@ -41,13 +41,14 @@ public class FleetSlot : MonoBehaviour
         timer = timeBetweenActions;
     }
 
-    public void FreeSlot(IShipActions ship) {
-        if (ship != shipActions) return;
+    public bool TryFreeSlot(IShipActions ship) {
+        if (ship != shipActions) return false;
 
         IsEmpty = true;
         shipActions.OnDestroy();
         shipActions = null;
         RemoveAllChildren();
+        return true;
     }
 
     void RemoveAllChildren() {
