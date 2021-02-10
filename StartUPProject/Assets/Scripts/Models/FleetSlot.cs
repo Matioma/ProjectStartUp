@@ -14,14 +14,30 @@ public class FleetSlot : MonoBehaviour
     public bool IsEmpty { get; set; } = true;
 
 
-    public void FillSlot(IShipActions shipActions) {
+    public void FillSlot(IShipActions shipActions, GameObject prefab) {
         IsEmpty = false;
-        this.shipActions = shipActions; 
+        this.shipActions = shipActions;
+        Instantiate(prefab, transform);
     }
 
-    public void FreeSlot() {
+    public void FreeSlot(IShipActions ship) {
+        if (ship != shipActions) return;
+
         IsEmpty = true;
         shipActions.OnDestroy();
         shipActions = null;
+
+        RemoveAllChildren();
+
+
     }
+
+    void RemoveAllChildren() {
+        while (transform.childCount > 0)
+        {
+            DestroyImmediate(transform.GetChild(0).gameObject);
+        }
+
+    }
+
 }

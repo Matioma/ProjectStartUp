@@ -8,33 +8,37 @@ public class FleetLayout : MonoBehaviour
 
     private void Awake()
     {
-        fleetSlots =GetComponentsInChildren<FleetSlot>(); 
+        fleetSlots = GetComponentsInChildren<FleetSlot>();
     }
 
 
-    public void FillSlot(IShipActions newShip, GameObject prefab, ShipTypes shipTypes) {
-        FleetSlot fleetSlot=getAvailableSlot(shipTypes);
-        Debug.Log("TEst");
+
+    /// <summary>
+    /// Fiil the slot with a ship type
+    /// </summary>
+    /// <param name="newShip">Ship interface</param>
+    /// <param name="prefab">visual prefab</param>
+    /// <param name="shipTypes">Ship type</param>
+    /// <returns>true is could add the ship, false if not</returns>
+    public bool FillSlot(IShipActions newShip, GameObject prefab, ShipTypes shipTypes) {
+        FleetSlot fleetSlot = getAvailableSlot(shipTypes);
         if (fleetSlot != null)
         {
-            Instantiate(prefab, fleetSlot.transform);
-            fleetSlot.IsEmpty = false;
-        }
-        else {
-            Debug.Log("Can not add ship " + shipTypes);
-        }
-    }
-
-    public bool CanAddShip(ShipTypes shipTypes) {
-        foreach (var fleetSlot in fleetSlots) {
-            if (fleetSlot.IsEmpty && fleetSlot.ShipType == shipTypes) {
-                return true;
-            }
+            fleetSlot.FillSlot(newShip, prefab);
+            return true;
         }
         return false;
     }
 
 
+    public void RemoveShip(IShipActions shipActions) {
+        foreach (var fleetSlot in fleetSlots) {
+            fleetSlot.FreeSlot(shipActions);
+        }
+    }
+
+
+    //Gets an available slot
     FleetSlot getAvailableSlot(ShipTypes shipType) {
         foreach (var fleetSlot in fleetSlots) {
             if (!fleetSlot.IsEmpty) continue;

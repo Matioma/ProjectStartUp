@@ -21,7 +21,8 @@ public class TrainingShip : Ship
 
     public override IShipActions CreateShip(FleetModel fleetModel)
     {
-        return new TrainingShip();
+        base.CreateShip(fleetModel);
+        return this;
     }
 
     public override void OnDestroy()
