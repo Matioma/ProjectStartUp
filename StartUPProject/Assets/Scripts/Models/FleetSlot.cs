@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class FleetSlot : MonoBehaviour
 {
- 
+    [SerializeField]
+    ShipTypes ShipType;
+
+    public bool IsEmpty { get; set; } = true;
 }

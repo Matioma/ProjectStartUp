@@ -21,6 +21,6 @@ public class DefenceShip : Ship
 
     public override IShipActions CreateShip(FleetModel fleetModel)
     {
-        throw new System.NotImplementedException();
+        return new DefenceShip();
     }
 }
