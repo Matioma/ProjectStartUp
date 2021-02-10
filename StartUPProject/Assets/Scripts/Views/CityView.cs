@@ -23,11 +23,10 @@ public class CityView : MonoBehaviour
     }
 
     void UpdateUI() {
-        goldAmount.text = fleetModel.FleetResources.getBalance(ResourceType.Gold).ToString() + " Gold";
-        woodAmount.text = fleetModel.FleetResources.getBalance(ResourceType.Wood).ToString() + " Wood";
-        orangesAmount.text = fleetModel.FleetResources.getBalance(ResourceType.Oranges).ToString() + " Oranges";
+        goldAmount.text = fleetModel.FleetResources.GetBalance(ResourceType.Gold) +"/" + fleetModel.FleetResources.GetStorageCap(ResourceType.Gold) + " Gold";
+        woodAmount.text = fleetModel.FleetResources.GetBalance(ResourceType.Wood) + "/" + fleetModel.FleetResources.GetStorageCap(ResourceType.Wood) + " Wood";
+        orangesAmount.text = fleetModel.FleetResources.GetBalance(ResourceType.Oranges) + "/" + fleetModel.FleetResources.GetStorageCap(ResourceType.Oranges) + " Oranges";
     }
-
 
     private void OnDestroy()
     {

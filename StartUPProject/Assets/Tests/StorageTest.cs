@@ -11,9 +11,9 @@ public class StorageTest
     {
         Storage storage = new Storage(10, 20, 50);
 
-        Assert.IsTrue(storage.getBalance(ResourceType.Gold) == 10);
-        Assert.IsTrue(storage.getBalance(ResourceType.Oranges) == 20);
-        Assert.IsTrue(storage.getBalance(ResourceType.Wood) == 50);
+        Assert.IsTrue(storage.GetBalance(ResourceType.Gold) == 10);
+        Assert.IsTrue(storage.GetBalance(ResourceType.Oranges) == 20);
+        Assert.IsTrue(storage.GetBalance(ResourceType.Wood) == 50);
     }
     [Test]
     public void Storage_Add_Resource_Method_Works()
@@ -23,9 +23,9 @@ public class StorageTest
         storage.AddResource(ResourceType.Wood, 150);
         storage.AddResource(ResourceType.Oranges, 0);
 
-        Assert.IsTrue(storage.getBalance(ResourceType.Gold) == 130);
-        Assert.IsTrue(storage.getBalance(ResourceType.Oranges) == 20);
-        Assert.IsTrue(storage.getBalance(ResourceType.Wood) == 200);
+        Assert.IsTrue(storage.GetBalance(ResourceType.Gold) == 130);
+        Assert.IsTrue(storage.GetBalance(ResourceType.Oranges) == 20);
+        Assert.IsTrue(storage.GetBalance(ResourceType.Wood) == 200);
     }
 
 
@@ -36,7 +36,7 @@ public class StorageTest
         storage.AddResource(ResourceType.Gold, -1);
 
         Assert.IsFalse(storage.AddResource(ResourceType.Gold, -1));
-        Assert.IsTrue(storage.getBalance(ResourceType.Gold)==10);
+        Assert.IsTrue(storage.GetBalance(ResourceType.Gold)==10);
     }
 
     [Test]
@@ -45,7 +45,7 @@ public class StorageTest
         Storage storage = new Storage(10, 20, 50);
 
         Assert.IsFalse(storage.UseResources(ResourceType.Gold, 100));
-        Assert.IsTrue(storage.getBalance(ResourceType.Gold) == 10);
+        Assert.IsTrue(storage.GetBalance(ResourceType.Gold) == 10);
     }
 
 }

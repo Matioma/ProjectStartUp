@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class StorageShip : Ship
 {
+    public int woodStorage=120;
+    public int goldStorage=150;
+    public int orangeStorage=300;
+
+
     public override void OnShipBuy()
     {
-        Debug.Log("StorageShip received");
+        this.AddStorage(goldStorage, woodStorage, orangeStorage);
     }
 
     public override void Update()
@@ -27,7 +32,7 @@ public class StorageShip : Ship
 
     public override void OnDestroy()
     {
-        throw new System.NotImplementedException();
+        this.ReduceStorage(goldStorage, woodStorage, orangeStorage);
     }
 }
 
