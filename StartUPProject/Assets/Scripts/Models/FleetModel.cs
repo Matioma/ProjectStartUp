@@ -26,8 +26,14 @@ public class FleetModel : MonoBehaviour, IFleetAction
     int fleetLevel = 1;
     public int FleetLevel {get{ return fleetLevel; }}
 
+    Ship selectedShip = null;
 
     public event Action onFleetDataChanged;
+
+
+    public event Action onSelectionChanged;
+    public event Action onShipSelected;
+    public event Action onShipDeselected;
 
     private void Awake()
     {
@@ -88,7 +94,18 @@ public class FleetModel : MonoBehaviour, IFleetAction
             ship.Upgrade();
         }
     }
-    
 
-    
+    public void SelectShip(Ship ship)
+    {
+        selectedShip = ship;
+        onSelectionChanged?.Invoke();
+    }
+    public void DeselectShip() {
+        onSelectionChanged?.Invoke();
+    }
+
+    public Ship GetSelectedShip()
+    {
+        return selectedShip;
+    }
 }

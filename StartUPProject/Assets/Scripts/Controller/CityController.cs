@@ -23,9 +23,4 @@ public class CityController : MonoBehaviour
         fleetActions.AddShip(shipTypes);
     }
 
-
-    //public void UpgradeFleet()
-    //{
-    //    fleetActions.IncreaseFleetLevel();
-    //}
 }
