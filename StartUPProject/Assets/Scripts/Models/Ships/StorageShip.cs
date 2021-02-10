@@ -19,7 +19,7 @@ public class StorageShip : Ship
         throw new System.NotImplementedException();
     }
 
-    public override void UpdateSelf()
+    public override void Upgrade()
     {
         throw new System.NotImplementedException();
     }
