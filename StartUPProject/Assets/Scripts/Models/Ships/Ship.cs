@@ -35,5 +35,9 @@ public abstract class Ship: IShipActions
         this.fleetModel = fleetModel;
         return this;
     }
- 
+
+    public void Selected()
+    {
+        fleetModel.SelectShip(this);
+    }
 }

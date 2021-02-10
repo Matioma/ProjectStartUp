@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IShipActions
 {
+    void Selected();
     void Update();
     void OnShipBuy();
     void Upgrade();

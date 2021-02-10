@@ -11,12 +11,12 @@ public class FleetSlot : MonoBehaviour
     [SerializeField]
     ShipTypes shipType;
 
-    public ShipTypes ShipType {get{ return shipType; }}
+    public ShipTypes ShipType { get { return shipType; } }
     public bool IsEmpty { get; set; } = true;
 
 
 
-    float timeBetweenActions=10.0f;
+    float timeBetweenActions = 10.0f;
     float timer;
 
 
@@ -24,7 +24,7 @@ public class FleetSlot : MonoBehaviour
 
     private void Update()
     {
-        if (shipActions !=null) {
+        if (shipActions != null) {
             if (timer < 0) {
                 shipActions.Update();
                 timer = timeBetweenActions;
@@ -49,6 +49,11 @@ public class FleetSlot : MonoBehaviour
         shipActions = null;
         RemoveAllChildren();
         return true;
+    }
+
+    public void Selected()
+    {
+        shipActions.Selected();
     }
 
     void RemoveAllChildren() {
