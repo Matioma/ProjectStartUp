@@ -14,10 +14,30 @@ public class FleetSlot : MonoBehaviour
     public bool IsEmpty { get; set; } = true;
 
 
+
+    float timeBetweenActions=10.0f;
+    float timer;
+
+
+
+
+    private void Update()
+    {
+        if (!IsEmpty) {
+            if (timer < 0) {
+                shipActions.Update();
+                timer = timeBetweenActions;
+            }
+            timer -= Time.deltaTime;
+        }
+    }
+
+
     public void FillSlot(IShipActions shipActions, GameObject prefab) {
         IsEmpty = false;
         this.shipActions = shipActions;
         Instantiate(prefab, transform);
+        timer = timeBetweenActions;
     }
 
     public void FreeSlot(IShipActions ship) {
@@ -26,10 +46,7 @@ public class FleetSlot : MonoBehaviour
         IsEmpty = true;
         shipActions.OnDestroy();
         shipActions = null;
-
         RemoveAllChildren();
-
-
     }
 
     void RemoveAllChildren() {
@@ -37,7 +54,6 @@ public class FleetSlot : MonoBehaviour
         {
             DestroyImmediate(transform.GetChild(0).gameObject);
         }
-
     }
 
 }

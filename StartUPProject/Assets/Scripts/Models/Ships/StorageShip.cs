@@ -9,6 +9,7 @@ public class StorageShip : Ship
     public int orangeStorage=300;
 
 
+
     public override void OnShipBuy()
     {
         this.AddStorage(goldStorage, woodStorage, orangeStorage);
@@ -16,7 +17,7 @@ public class StorageShip : Ship
 
     public override void Update()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("This is the Storage Ship");
     }
 
     public override void Upgrade()

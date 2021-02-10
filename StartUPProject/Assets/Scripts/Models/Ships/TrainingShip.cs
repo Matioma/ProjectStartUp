@@ -11,7 +11,7 @@ public class TrainingShip : Ship
 
     public override void Update()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("This is Trainining Ship");
     }
 
     public override void Upgrade()

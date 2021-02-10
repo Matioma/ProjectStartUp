@@ -39,6 +39,12 @@ public class FleetModel : MonoBehaviour, IFleetAction
         AddShip(ShipTypes.MainShip);
     }
 
+
+
+
+
+
+
     public void AddShip(ShipTypes shipType)
     {
         IShipActions newShip= null;
