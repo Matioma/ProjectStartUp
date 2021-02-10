@@ -19,7 +19,6 @@ public class FleetModel : MonoBehaviour, IFleetAction
 
     Storage fleetResourses;
 
-    
     FleetLayout fleetLayout;
 
 
@@ -27,7 +26,7 @@ public class FleetModel : MonoBehaviour, IFleetAction
     {
         if (storageConfiguration == null) { Debug.LogError("Make sure that the Fleet model has Storage configuration set up"); }
         fleetResourses = new Storage(storageConfiguration.gold, storageConfiguration.oranges, storageConfiguration.wood);
-        fleetLayout.GetComponent<FleetLayout>();
+        fleetLayout= GetComponent<FleetLayout>();
     }
 
     public void AddShip(ShipTypes shipType)
@@ -37,16 +36,19 @@ public class FleetModel : MonoBehaviour, IFleetAction
         {
             case ShipTypes.MainShip:
                 newShip = new MainShip().CreateShip(this);
-                
+                fleetLayout.FillSlot(newShip,shipFactoryConfiguration.BaseShipPrefab);
                 break;
             case ShipTypes.DefenceShip:
                 newShip = new DefenceShip().CreateShip(this);
+                fleetLayout.FillSlot(newShip, shipFactoryConfiguration.DefenceShipPrefab);
                 break;
             case ShipTypes.StorageShip:
                 newShip = new StorageShip().CreateShip(this);
+                fleetLayout.FillSlot(newShip, shipFactoryConfiguration.StorageShipPrefab);
                 break;
             case ShipTypes.TrainingShip:
                 newShip = new TrainingShip().CreateShip(this);
+                fleetLayout.FillSlot(newShip, shipFactoryConfiguration.TrainingShipPrefab);
                 break;
             default:
                 Debug.LogError("Unkown Ship Type");

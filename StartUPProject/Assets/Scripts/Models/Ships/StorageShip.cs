@@ -21,7 +21,7 @@ public class StorageShip : Ship
 
     public override IShipActions CreateShip(FleetModel fleetModel)
     {
-        throw new System.NotImplementedException();
+        return new StorageShip();
     }
 }
 
