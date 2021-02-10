@@ -18,6 +18,8 @@ public class FleetModel : MonoBehaviour, IFleetAction
     [Header("Class Data")]
 
     Storage fleetResourses;
+    public Storage FleetResources { get { return fleetResourses; } }
+
 
     FleetLayout fleetLayout;
 

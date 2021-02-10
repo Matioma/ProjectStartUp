@@ -14,11 +14,16 @@ public enum ShipTypes {
 
 public abstract class Ship: IShipActions
 {
+    protected FleetModel fleetModel;
+
     public abstract void OnShipBuy();
     public abstract void Update();
     public abstract void UpdateSelf();
 
     public abstract void OnDestroy();
-    public  abstract IShipActions CreateShip(FleetModel fleetModel);
+    public virtual IShipActions CreateShip(FleetModel fleetModel) {
+        this.fleetModel = fleetModel;
+        return this;
+    }
  
 }

@@ -20,6 +20,8 @@ public class MainShip : Ship
 
     public override IShipActions CreateShip(FleetModel fleetModel)
     {
+        base.CreateShip(fleetModel);
+        Debug.Log(this.fleetModel.FleetResources.getBalance(ResourceType.Gold));
         return new MainShip();
         //throw new System.NotImplementedException();
     }
