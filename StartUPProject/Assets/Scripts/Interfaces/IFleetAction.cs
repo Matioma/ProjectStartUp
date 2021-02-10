@@ -5,5 +5,4 @@ using UnityEngine;
 public interface IFleetAction
 {
     void AddShip(ShipTypes shipType);
-    void IncreaseFleetLevel();
 }

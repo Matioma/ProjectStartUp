@@ -64,9 +64,6 @@ public class FleetModel : MonoBehaviour, IFleetAction
             case ShipTypes.TrainingShip:
                 newShip = new TrainingShip().CreateShip(this);
                 shipAdded= fleetLayout.FillSlot(newShip, shipFactoryConfiguration.TrainingShipPrefab, shipType);
-                
-
-                
                 break;
             default:
                 Debug.LogError("Unkown Ship Type");
@@ -83,6 +80,8 @@ public class FleetModel : MonoBehaviour, IFleetAction
         if (ship == null) return; 
         fleetLayout.RemoveShip(ship);
     }
+    
+    
     public void IncreaseFleetLevel() {
         fleetLevel++;
         foreach (var ship in fleetLayout.GetShips(typeof(Ship))) {

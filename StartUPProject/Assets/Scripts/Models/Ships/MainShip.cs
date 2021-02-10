@@ -19,7 +19,8 @@ public class MainShip : Ship
 
     public override void Upgrade()
     {
-        Debug.Log("Main SHIP UPGARDED");
+        fleetModel.IncreaseFleetLevel();
+        //Debug.Log("Main SHIP UPGARDED");
     }
 
     public override IShipActions CreateShip(FleetModel fleetModel)

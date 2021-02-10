@@ -15,7 +15,6 @@ public enum ShipTypes {
 public abstract class Ship: IShipActions
 {
     protected FleetModel fleetModel;
-
     protected void AddStorage(int gold, int wood, int oranges) {
         fleetModel.FleetResources.IncreaseStorage(ResourceType.Gold,gold);
         fleetModel.FleetResources.IncreaseStorage(ResourceType.Wood, wood);
@@ -27,7 +26,6 @@ public abstract class Ship: IShipActions
         fleetModel.FleetResources.DecreaseStorage(ResourceType.Wood, wood);
         fleetModel.FleetResources.DecreaseStorage(ResourceType.Oranges, oranges);
     }
-
     public abstract void OnShipBuy();
     public abstract void Update();
     public abstract void Upgrade();

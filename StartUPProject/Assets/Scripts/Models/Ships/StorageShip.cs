@@ -8,8 +8,6 @@ public class StorageShip : Ship
     public int goldStorage=150;
     public int orangeStorage=300;
 
-
-
     public override void OnShipBuy()
     {
         this.AddStorage(goldStorage, woodStorage, orangeStorage);
