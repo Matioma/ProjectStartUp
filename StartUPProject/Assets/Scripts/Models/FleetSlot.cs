@@ -24,7 +24,7 @@ public class FleetSlot : MonoBehaviour
 
     private void Update()
     {
-        if (!IsEmpty) {
+        if (shipActions !=null) {
             if (timer < 0) {
                 shipActions.Update();
                 timer = timeBetweenActions;

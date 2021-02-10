@@ -22,4 +22,10 @@ public class CityController : MonoBehaviour
     public void BuyShip(ShipTypes shipTypes) {
         fleetActions.AddShip(shipTypes);
     }
+
+
+    public void UpgradeFleet()
+    {
+        fleetActions.IncreaseFleetLevel();
+    }
 }

@@ -40,7 +40,7 @@ public class FleetLayout : MonoBehaviour
     }
 
 
-    //Gets an available slot
+    //Gets an available slot to place a ship
     FleetSlot getAvailableSlot(ShipTypes shipType) {
         foreach (var fleetSlot in fleetSlots) {
             if (!fleetSlot.IsEmpty) continue;
@@ -53,7 +53,8 @@ public class FleetLayout : MonoBehaviour
     }
 
 
-    //Gets all the ships of a specific Type
+
+    //Returns all the ships of a specific Type
     public List<IShipActions> GetShips(Type shipType)
     {
         List<IShipActions> resultList = new List<IShipActions>();
@@ -67,8 +68,6 @@ public class FleetLayout : MonoBehaviour
                 resultList.Add(shipAction);
             }
         }
-
-        Debug.Log(resultList.Count);
         return resultList;
     }
 }

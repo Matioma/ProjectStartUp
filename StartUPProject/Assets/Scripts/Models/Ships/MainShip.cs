@@ -19,7 +19,7 @@ public class MainShip : Ship
 
     public override void Upgrade()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Main SHIP UPGARDED");
     }
 
     public override IShipActions CreateShip(FleetModel fleetModel)

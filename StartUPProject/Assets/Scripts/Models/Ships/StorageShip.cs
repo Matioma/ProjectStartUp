@@ -22,7 +22,8 @@ public class StorageShip : Ship
 
     public override void Upgrade()
     {
-        throw new System.NotImplementedException();
+
+        Debug.Log("StorageSHIP Upgarded");
     }
 
     public override IShipActions CreateShip(FleetModel fleetModel)

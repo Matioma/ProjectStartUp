@@ -85,9 +85,9 @@ public class FleetModel : MonoBehaviour, IFleetAction
 
     public void RemoveShip(IShipActions ship) { 
     }
-    private void IncreaseFleetLevel() {
+    public void IncreaseFleetLevel() {
         fleetLevel++;
-        foreach (var ship in fleetLayout.GetShips(typeof(IShipActions))) {
+        foreach (var ship in fleetLayout.GetShips(typeof(Ship))) {
             ship.Upgrade();
         }
     }

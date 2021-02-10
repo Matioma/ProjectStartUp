@@ -16,7 +16,7 @@ public class TrainingShip : Ship
 
     public override void Upgrade()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Training Ship Upgraded");
     }
 
     public override IShipActions CreateShip(FleetModel fleetModel)
