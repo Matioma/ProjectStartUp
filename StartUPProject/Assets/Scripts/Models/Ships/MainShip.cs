@@ -6,6 +6,7 @@ public class MainShip : Ship
 {
     public override void OnShipBuy()
     {
+        Debug.Log("MainShip received");
     }
     public override void Update()
     {

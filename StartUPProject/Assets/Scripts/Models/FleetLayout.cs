@@ -25,6 +25,7 @@ public class FleetLayout : MonoBehaviour
         if (fleetSlot != null)
         {
             fleetSlot.FillSlot(newShip, prefab);
+            newShip.OnShipBuy();
             return true;
         }
         return false;

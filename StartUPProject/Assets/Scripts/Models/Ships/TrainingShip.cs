@@ -6,7 +6,7 @@ public class TrainingShip : Ship
 {
     public override void OnShipBuy()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("TrainingShip received");
     }
 
     public override void Update()

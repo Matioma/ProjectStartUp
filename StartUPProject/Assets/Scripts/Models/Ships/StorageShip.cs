@@ -6,7 +6,7 @@ public class StorageShip : Ship
 {
     public override void OnShipBuy()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("StorageShip received");
     }
 
     public override void Update()

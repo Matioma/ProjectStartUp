@@ -6,7 +6,7 @@ public class DefenceShip : Ship
 {
     public override void OnShipBuy()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("DefenceShip received");
     }
 
     public override void Update()
