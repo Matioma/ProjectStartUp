@@ -23,5 +23,10 @@ public class StorageShip : Ship
     {
         return new StorageShip();
     }
+
+    public override void OnDestroy()
+    {
+        throw new System.NotImplementedException();
+    }
 }
 

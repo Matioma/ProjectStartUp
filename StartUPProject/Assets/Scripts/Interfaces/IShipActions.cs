@@ -7,5 +7,5 @@ public interface IShipActions
     void Update();
     void OnShipBuy();
     void UpdateSelf();
-
+    void OnDestroy();
 }

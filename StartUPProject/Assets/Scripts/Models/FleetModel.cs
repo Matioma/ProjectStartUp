@@ -32,31 +32,24 @@ public class FleetModel : MonoBehaviour, IFleetAction
     public void AddShip(ShipTypes shipType)
     {
         IShipActions newShip= null;
+
         switch (shipType)
         {
             case ShipTypes.MainShip:
                 newShip = new MainShip().CreateShip(this);
-                if (fleetLayout.CanAddShip(ShipTypes.MainShip))
-                {
-                    fleetLayout.FillSlot(newShip, shipFactoryConfiguration.BaseShipPrefab);
-                }
-
+                fleetLayout.FillSlot(newShip, shipFactoryConfiguration.BaseShipPrefab,shipType);
                 break;
             case ShipTypes.DefenceShip:
                 newShip = new DefenceShip().CreateShip(this);
-                fleetLayout.FillSlot(newShip, shipFactoryConfiguration.DefenceShipPrefab);
-                if (fleetLayout.CanAddShip(ShipTypes.DefenceShip))
-                {
-                    fleetLayout.FillSlot(newShip, shipFactoryConfiguration.BaseShipPrefab);
-                }
+                fleetLayout.FillSlot(newShip, shipFactoryConfiguration.DefenceShipPrefab, shipType);
                 break;
             case ShipTypes.StorageShip:
                 newShip = new StorageShip().CreateShip(this);
-                fleetLayout.FillSlot(newShip, shipFactoryConfiguration.StorageShipPrefab);
+                fleetLayout.FillSlot(newShip, shipFactoryConfiguration.StorageShipPrefab, shipType);
                 break;
             case ShipTypes.TrainingShip:
                 newShip = new TrainingShip().CreateShip(this);
-                fleetLayout.FillSlot(newShip, shipFactoryConfiguration.TrainingShipPrefab);
+                fleetLayout.FillSlot(newShip, shipFactoryConfiguration.TrainingShipPrefab, shipType);
                 break;
             default:
                 Debug.LogError("Unkown Ship Type");

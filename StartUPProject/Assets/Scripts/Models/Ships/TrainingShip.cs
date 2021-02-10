@@ -23,4 +23,9 @@ public class TrainingShip : Ship
     {
         return new TrainingShip();
     }
+
+    public override void OnDestroy()
+    {
+        throw new System.NotImplementedException();
+    }
 }

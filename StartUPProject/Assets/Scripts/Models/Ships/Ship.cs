@@ -17,5 +17,8 @@ public abstract class Ship: IShipActions
     public abstract void OnShipBuy();
     public abstract void Update();
     public abstract void UpdateSelf();
+
+    public abstract void OnDestroy();
     public  abstract IShipActions CreateShip(FleetModel fleetModel);
+ 
 }

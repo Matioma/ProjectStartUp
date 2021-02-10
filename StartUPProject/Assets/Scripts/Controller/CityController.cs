@@ -13,19 +13,13 @@ public class CityController : MonoBehaviour
         fleetActions = FindObjectOfType<FleetModel>();
     }
 
-
     public void BuyShip(string ship) {
         if (Enum.TryParse(ship, out ShipTypes shipToBuy)) {
             BuyShip(shipToBuy);
         }
     }
 
-
     public void BuyShip(ShipTypes shipTypes) {
         fleetActions.AddShip(shipTypes);
     }
-
-
-
-
 }

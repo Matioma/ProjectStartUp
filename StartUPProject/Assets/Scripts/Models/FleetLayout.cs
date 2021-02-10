@@ -1,22 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FleetLayout : MonoBehaviour
 {
     FleetSlot[] fleetSlots;
 
+
+
     private void Awake()
     {
         fleetSlots =GetComponentsInChildren<FleetSlot>(); 
     }
 
-    public void FillSlot(IShipActions newShip, GameObject prefab) {
-        if(getAvailableSlot() != null)
+
+    public void FillSlot(IShipActions newShip, GameObject prefab, ShipTypes shipTypes) {
+        FleetSlot fleetSlot=getAvailableSlot(shipTypes);
+        Debug.Log("TEst");
+        if (fleetSlot != null)
         {
-            FleetSlot fleetSlot = getAvailableSlot();
             Instantiate(prefab, fleetSlot.transform);
             fleetSlot.IsEmpty = false;
+        }
+        else {
+            Debug.Log("Can not add ship " + shipTypes);
         }
     }
 
@@ -30,13 +35,15 @@ public class FleetLayout : MonoBehaviour
     }
 
 
+    FleetSlot getAvailableSlot(ShipTypes shipType) {
+        foreach (var fleetSlot in fleetSlots) {
+            if (!fleetSlot.IsEmpty) continue;
 
-    FleetSlot getAvailableSlot() {
-
-        return fleetSlots[0];
+            if (fleetSlot.ShipType == shipType) {
+                return fleetSlot;
+            }
+        }
+        return null;
     }
-
-
-
 }
 

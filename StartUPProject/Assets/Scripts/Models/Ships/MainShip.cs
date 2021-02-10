@@ -23,4 +23,8 @@ public class MainShip : Ship
         return new MainShip();
         //throw new System.NotImplementedException();
     }
+    public override void OnDestroy()
+    {
+        throw new System.NotImplementedException();
+    }
 }
