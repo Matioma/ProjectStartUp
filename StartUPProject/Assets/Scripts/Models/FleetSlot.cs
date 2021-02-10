@@ -6,6 +6,7 @@ public class FleetSlot : MonoBehaviour
 {
 
     IShipActions shipActions;
+    public IShipActions ShipAction { get { return shipActions; } }
 
     [SerializeField]
     ShipTypes shipType;

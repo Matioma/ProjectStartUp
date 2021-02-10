@@ -14,7 +14,7 @@ public class MainShip : Ship
 
     public override void Update()
     {
-        Debug.Log("I am a  Main ship");
+        
     }
 
     public override void Upgrade()

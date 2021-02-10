@@ -15,14 +15,22 @@ public class FleetModel : MonoBehaviour, IFleetAction
     ShipFactoryConfiguration shipFactoryConfiguration;
 
 
-
     [Header("Class Data")]
 
     Storage fleetResourses;
     public Storage FleetResources { get { return fleetResourses; } }
 
 
+
+
+    List<IShipActions> allShips = new List<IShipActions>();
+
+
     FleetLayout fleetLayout;
+
+
+    int fleetLevel = 1;
+    public int FleetLevel {get{ return fleetLevel; }}
 
 
     public event Action onFleetDataChanged;
@@ -38,12 +46,6 @@ public class FleetModel : MonoBehaviour, IFleetAction
     void Start() {
         AddShip(ShipTypes.MainShip);
     }
-
-
-
-
-
-
 
     public void AddShip(ShipTypes shipType)
     {
@@ -76,7 +78,20 @@ public class FleetModel : MonoBehaviour, IFleetAction
 
         if (shipAdded) {
             onFleetDataChanged?.Invoke();
+            fleetLayout.GetShips(typeof(Ship));
         }
-        
     }
+
+
+    public void RemoveShip(IShipActions ship) { 
+    }
+    private void IncreaseFleetLevel() {
+        fleetLevel++;
+        foreach (var ship in fleetLayout.GetShips(typeof(IShipActions))) {
+            ship.Upgrade();
+        }
+    }
+    
+
+    
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TrainingShip : Ship
 {
+
     public override void OnShipBuy()
     {
-        Debug.Log("TrainingShip received");
     }
 
     public override void Update()

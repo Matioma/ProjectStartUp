@@ -1,20 +1,19 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FleetLayout : MonoBehaviour
 {
-    FleetSlot[] fleetSlots;
+    List<FleetSlot> fleetSlots = new List<FleetSlot>();
 
 
 
     private void Awake()
     {
-        fleetSlots = GetComponentsInChildren<FleetSlot>();
+        foreach (var slot in GetComponentsInChildren<FleetSlot>()) {
+            fleetSlots.Add(slot);
+        }
     }
-
-
-
-
-
     /// <summary>
     /// Fiil the slot with a ship type
     /// </summary>
@@ -51,6 +50,26 @@ public class FleetLayout : MonoBehaviour
             }
         }
         return null;
+    }
+
+
+    //Gets all the ships of a specific Type
+    public List<IShipActions> GetShips(Type shipType)
+    {
+        List<IShipActions> resultList = new List<IShipActions>();
+        foreach (var shipSlot in fleetSlots)
+        {
+            IShipActions shipAction = shipSlot.ShipAction;
+            if (shipAction == null) continue;
+
+            if (shipAction.GetType().IsSubclassOf(shipType) || shipAction.GetType() == shipType )
+            {
+                resultList.Add(shipAction);
+            }
+        }
+
+        Debug.Log(resultList.Count);
+        return resultList;
     }
 }
 
