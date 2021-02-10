@@ -14,18 +14,14 @@ public class CityController : MonoBehaviour
     }
 
 
-
-    public void TestBuy(string ship) {
+    public void BuyShip(string ship) {
         if (Enum.TryParse(ship, out ShipTypes shipToBuy)) {
-            TestBuy(shipToBuy);
+            BuyShip(shipToBuy);
         }
-
-      
     }
 
 
-    public void TestBuy(ShipTypes shipTypes) {
-
+    public void BuyShip(ShipTypes shipTypes) {
         fleetActions.AddShip(shipTypes);
     }
 

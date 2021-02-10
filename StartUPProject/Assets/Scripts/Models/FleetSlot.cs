@@ -5,7 +5,9 @@ using UnityEngine;
 public class FleetSlot : MonoBehaviour
 {
     [SerializeField]
-    ShipTypes ShipType;
+    ShipTypes shipType;
+
+    public ShipTypes ShipType {get{ return shipType; }}
 
     public bool IsEmpty { get; set; } = true;
 }

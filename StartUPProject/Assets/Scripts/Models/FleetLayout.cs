@@ -14,13 +14,18 @@ public class FleetLayout : MonoBehaviour
     public void FillSlot(IShipActions newShip, GameObject prefab) {
         if(getAvailableSlot() != null)
         {
-            Instantiate(prefab, getAvailableSlot().transform);
-            
+            FleetSlot fleetSlot = getAvailableSlot();
+            Instantiate(prefab, fleetSlot.transform);
+            fleetSlot.IsEmpty = false;
         }
     }
 
-    public bool CanAddShip(FleetSlot fleetSlot) {
-        
+    public bool CanAddShip(ShipTypes shipTypes) {
+        foreach (var fleetSlot in fleetSlots) {
+            if (fleetSlot.IsEmpty && fleetSlot.ShipType == shipTypes) {
+                return true;
+            }
+        }
         return false;
     }
 

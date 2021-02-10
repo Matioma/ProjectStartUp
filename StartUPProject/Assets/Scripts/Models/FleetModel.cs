@@ -36,11 +36,19 @@ public class FleetModel : MonoBehaviour, IFleetAction
         {
             case ShipTypes.MainShip:
                 newShip = new MainShip().CreateShip(this);
-                fleetLayout.FillSlot(newShip,shipFactoryConfiguration.BaseShipPrefab);
+                if (fleetLayout.CanAddShip(ShipTypes.MainShip))
+                {
+                    fleetLayout.FillSlot(newShip, shipFactoryConfiguration.BaseShipPrefab);
+                }
+
                 break;
             case ShipTypes.DefenceShip:
                 newShip = new DefenceShip().CreateShip(this);
                 fleetLayout.FillSlot(newShip, shipFactoryConfiguration.DefenceShipPrefab);
+                if (fleetLayout.CanAddShip(ShipTypes.DefenceShip))
+                {
+                    fleetLayout.FillSlot(newShip, shipFactoryConfiguration.BaseShipPrefab);
+                }
                 break;
             case ShipTypes.StorageShip:
                 newShip = new StorageShip().CreateShip(this);
