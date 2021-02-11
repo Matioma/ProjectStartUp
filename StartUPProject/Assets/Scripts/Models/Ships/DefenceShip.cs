@@ -58,6 +58,8 @@ public class DefenceShip : Ship
     {
         for (int i = 0; i < fleetModel.FleetLevel; i++)
         {
+            if (i >= this.upgradesConfiguration.DefenceShipUpgrades.Length) { return; }
+
             DefenceShipUpgrade upgradeData = upgradesConfiguration.DefenceShipUpgrades[i];
             woodConsumption += upgradeData.woodConsumption;
             goldConsumption += upgradeData.goldConsumption;

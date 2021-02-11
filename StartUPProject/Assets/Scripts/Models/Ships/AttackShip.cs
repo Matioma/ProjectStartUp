@@ -54,6 +54,8 @@ public class AttackShip :Ship
     {
         for (int i = 0; i < fleetModel.FleetLevel; i++)
         {
+            if (i >= this.upgradesConfiguration.AttackShipUpgrades.Length) { return; }
+
             AttackShipUpgrade upgradeData = this.upgradesConfiguration.AttackShipUpgrades[i];
             woodConsumption += upgradeData.woodConsumption;
             goldConsumption += upgradeData.goldConsumption;

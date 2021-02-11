@@ -10,7 +10,7 @@ public class ShipFactoryConfiguration : ScriptableObject
     [SerializeField]
     public GameObject StorageShipPrefab;
     [SerializeField]
-    public GameObject TrainingShipPrefab;
+    public GameObject AttackShipPrefab;
     [SerializeField]
     public GameObject DefenceShipPrefab;
 }
