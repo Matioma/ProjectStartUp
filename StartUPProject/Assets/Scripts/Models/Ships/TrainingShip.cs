@@ -7,6 +7,7 @@ public class TrainingShip : Ship
 
     public override void OnShipBuy()
     {
+        base.OnShipBuy();
     }
 
     public override void Update()

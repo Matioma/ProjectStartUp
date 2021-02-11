@@ -9,6 +9,7 @@ public class MainShip : Ship
     public int orangeStorage = 50;
     public override void OnShipBuy()
     {
+        base.OnShipBuy();
         this.AddStorage(goldStorage, woodStorage, orangeStorage);
     }
 

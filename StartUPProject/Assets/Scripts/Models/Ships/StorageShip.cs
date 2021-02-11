@@ -27,6 +27,7 @@ public class StorageShip : Ship
 
     public override void OnShipBuy()
     {
+        base.OnShipBuy();
         this.AddStorage(initialGoldStorage, initialWoodStorage, initialOrangeStorage);
     }
 

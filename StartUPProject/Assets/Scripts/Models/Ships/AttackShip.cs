@@ -7,6 +7,7 @@ public class AttackShip :Ship
     public override void OnShipBuy()
     {
         Debug.Log("AttackShip received");
+        base.OnShipBuy();
     }
 
     public override void Update()

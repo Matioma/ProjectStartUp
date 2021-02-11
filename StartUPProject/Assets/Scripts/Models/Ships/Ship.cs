@@ -39,7 +39,11 @@ public abstract class Ship: IShipActions
         fleetModel.FleetResources.DecreaseStorage(ResourceType.Wood, wood);
         fleetModel.FleetResources.DecreaseStorage(ResourceType.Oranges, oranges);
     }
-    public abstract void OnShipBuy();
+    public virtual void OnShipBuy() {
+        fleetModel.FleetResources.UseResources(ResourceType.Gold, buildPrice.goldPrice);
+        fleetModel.FleetResources.UseResources(ResourceType.Oranges, buildPrice.orangesPrice);
+        fleetModel.FleetResources.UseResources(ResourceType.Wood, buildPrice.woodPrice);
+    }
     public abstract void Update();
     public abstract void Upgrade();
 

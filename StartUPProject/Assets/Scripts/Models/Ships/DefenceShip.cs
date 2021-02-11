@@ -6,7 +6,8 @@ public class DefenceShip : Ship
 {
     public override void OnShipBuy()
     {
-        //Debug.Log("DefenceShip received");
+        base.OnShipBuy();
+        Debug.Log("DefenceShip received");
     }
 
     public override void Update()
