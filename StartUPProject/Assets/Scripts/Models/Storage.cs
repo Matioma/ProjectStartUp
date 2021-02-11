@@ -30,6 +30,11 @@ public class Storage
         _maxStorage[ResourceType.Wood] = 0;
     }
 
+    public bool CanSpend(int gold, int oranges, int wood) {
+        return gold <= GetBalance(ResourceType.Gold) && oranges <= GetBalance(ResourceType.Oranges) && wood <= GetBalance(ResourceType.Oranges);
+    }
+
+
     public int GetStorageCap(ResourceType resourceType) {
         return _maxStorage[resourceType];
     }
