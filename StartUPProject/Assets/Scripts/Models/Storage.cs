@@ -39,7 +39,7 @@ public class Storage
         {
             Debug.LogWarning(" You are incrising the storage by a negative amount => you actually decrease it");
         }
-        Debug.Log(amount + "Added");
+
         _maxStorage[resourceType] += amount;
     }
     public bool DecreaseStorage(ResourceType resourceType, int amount)

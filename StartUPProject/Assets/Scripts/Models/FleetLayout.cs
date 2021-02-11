@@ -23,6 +23,10 @@ public class FleetLayout : MonoBehaviour
     /// <returns>true is could add the ship, false if not</returns>
     public bool FillSlot(IShipActions newShip, GameObject prefab, ShipTypes shipTypes) {
         FleetSlot fleetSlot = getAvailableSlot(shipTypes);
+
+        if (shipTypes == ShipTypes.DefenceShip || shipTypes == ShipTypes.AttackShip) {
+            fleetSlot = getAvailableSlot(ShipTypes.UnitShip);
+        }
         if (fleetSlot != null)
         {
             fleetSlot.FillSlot(newShip, prefab);

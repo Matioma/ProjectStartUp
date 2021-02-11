@@ -29,9 +29,6 @@ public class FleetModel : MonoBehaviour, IFleetAction
     int fleetLevel = 1;
     public int FleetLevel {get{ return fleetLevel; }}
 
- 
-
-
 
     Ship selectedShip = null;
 
@@ -74,10 +71,14 @@ public class FleetModel : MonoBehaviour, IFleetAction
                 newShip = new StorageShip().CreateShip(this);
                 shipAdded= fleetLayout.FillSlot(newShip, shipFactoryConfiguration.StorageShipPrefab, shipType);
                 break;
-            case ShipTypes.TrainingShip:
-                newShip = new TrainingShip().CreateShip(this);
-                shipAdded= fleetLayout.FillSlot(newShip, shipFactoryConfiguration.TrainingShipPrefab, shipType);
+            case ShipTypes.AttackShip:
+                newShip = new AttackShip().CreateShip(this);
+                shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.StorageShipPrefab, shipType);
                 break;
+            //case ShipTypes.TrainingShip:
+            //    newShip = new TrainingShip().CreateShip(this);
+            //    shipAdded= fleetLayout.FillSlot(newShip, shipFactoryConfiguration.TrainingShipPrefab, shipType);
+            //    break;
             default:
                 Debug.LogError("Unkown Ship Type");
                 break;

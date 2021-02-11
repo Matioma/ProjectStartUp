@@ -11,7 +11,7 @@ public class DefenceShip : Ship
 
     public override void Update()
     {
-        Debug.Log("This is SpaceShip");
+        Debug.Log("This is DefenceShip");
     }
 
     public override void Upgrade()

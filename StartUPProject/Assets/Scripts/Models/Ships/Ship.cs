@@ -7,8 +7,10 @@ public enum ShipTypes {
     None,
     MainShip,
     StorageShip,
+    UnitShip,
     DefenceShip,
-    TrainingShip
+    AttackShip
+    //TrainingShip
 }
 
 
