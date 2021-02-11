@@ -22,6 +22,11 @@ public abstract class Ship: IShipActions
     public int OrangesPrice => buildPrice.orangesPrice;
 
 
+    protected int woodConsumption;
+    protected int goldConsumption;
+    protected int orangeConsumption;
+
+
 
     protected FleetModel fleetModel;
     protected ShipUpgradesConfiguration upgradesConfiguration;
@@ -44,7 +49,11 @@ public abstract class Ship: IShipActions
         fleetModel.FleetResources.UseResources(ResourceType.Oranges, buildPrice.orangesPrice);
         fleetModel.FleetResources.UseResources(ResourceType.Wood, buildPrice.woodPrice);
     }
-    public abstract void Update();
+    public virtual void Update() {
+        fleetModel.FleetResources.UseResources(ResourceType.Wood, woodConsumption);
+        fleetModel.FleetResources.UseResources(ResourceType.Gold, goldConsumption);
+        fleetModel.FleetResources.UseResources(ResourceType.Oranges, orangeConsumption);
+    }
     public abstract void Upgrade();
 
     public abstract void ApplyFleetUpgrades();

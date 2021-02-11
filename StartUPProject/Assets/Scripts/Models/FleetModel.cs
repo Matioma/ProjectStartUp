@@ -46,7 +46,8 @@ public class FleetModel : MonoBehaviour, IFleetAction
         if (storageConfiguration == null) { Debug.LogError("Make sure that the Fleet model has Storage configuration set up"); }
         fleetResourses = new Storage(storageConfiguration.gold, storageConfiguration.oranges, storageConfiguration.wood);
         fleetLayout= GetComponent<FleetLayout>();
-        
+
+        fleetResourses.onStorageChange += UpdateUI;
     }
 
     void Start() {
@@ -122,6 +123,14 @@ public class FleetModel : MonoBehaviour, IFleetAction
         onFleetDataChanged?.Invoke();
     }
 
+
+    void UpdateUI()
+    {
+        onFleetDataChanged?.Invoke();
+    }
+
+
+
     public void SelectShip(Ship ship)
     {
         selectedShip = ship;
@@ -137,9 +146,11 @@ public class FleetModel : MonoBehaviour, IFleetAction
         return selectedShip;
     }
 
-
-
     protected bool CanBuy(IShipActions ship) {
         return fleetResourses.CanSpend(ship.GoldPrice, ship.OrangesPrice, ship.WoodPrice);
+    }
+
+    void OnDestroy() {
+        fleetResourses.onStorageChange -= UpdateUI;
     }
 }

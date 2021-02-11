@@ -21,9 +21,8 @@ public class StorageShipUpgrade {
 }
 public class StorageShip : Ship
 {
-    public int initialWoodStorage=120;
-    public int initialGoldStorage=150;
-    public int initialOrangeStorage=300;
+
+
 
     public override void OnShipBuy()
     {
@@ -33,6 +32,7 @@ public class StorageShip : Ship
 
     public override void Update()
     {
+        base.Update();
     }
 
 
@@ -69,7 +69,7 @@ public class StorageShip : Ship
 
     public override void OnDestroy()
     {
-        this.ReduceStorage(initialGoldStorage, initialWoodStorage, initialOrangeStorage);
+       // this.ReduceStorage(initialGoldStorage, initialWoodStorage, initialOrangeStorage);
     }
 
   

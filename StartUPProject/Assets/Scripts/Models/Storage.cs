@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class Storage
     [SerializeField]
     Dictionary<ResourceType, int> _maxStorage = new Dictionary<ResourceType, int>();
 
+
+    public event Action onStorageChange;
 
     public Storage(int gold, int oranges, int wood) {
         _userBalance[ResourceType.Gold] = gold;
@@ -46,6 +49,7 @@ public class Storage
         }
 
         _maxStorage[resourceType] += amount;
+        onStorageChange?.Invoke();
     }
     public bool DecreaseStorage(ResourceType resourceType, int amount)
     {
@@ -58,6 +62,7 @@ public class Storage
             return false;
         }
         _maxStorage[resourceType] -= amount;
+        onStorageChange?.Invoke();
         return true;
     }
 
@@ -68,6 +73,7 @@ public class Storage
     public bool AddResource(ResourceType resourceType,int amount) {
         if (amount > 0) {
             _userBalance[resourceType] += amount;
+            onStorageChange?.Invoke();
             return true;
         }
         return false;
@@ -76,6 +82,7 @@ public class Storage
     public bool UseResources(ResourceType resourceType, int amount) {
         if (_userBalance[resourceType] > amount) {
             _userBalance[resourceType] -= amount;
+            onStorageChange?.Invoke();
             return true;
         }
         return false;

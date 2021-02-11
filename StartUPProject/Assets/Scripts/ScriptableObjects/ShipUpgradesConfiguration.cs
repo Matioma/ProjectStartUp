@@ -8,4 +8,14 @@ public class ShipUpgradesConfiguration : ScriptableObject
     [SerializeField]
     StorageShipUpgrade[] storageUpgrades;
     public StorageShipUpgrade[] StorageUpgrades{get{ return storageUpgrades; }}
+
+
+    [SerializeField]
+    AttackShipUpgrade[] attackShipUpgrades;
+    public AttackShipUpgrade[] AttackShipUpgrades => attackShipUpgrades;
+
+
+    [SerializeField]
+    DefenceShipUpgrade[] defenceShipUpgrades;
+    public DefenceShipUpgrade[] DefenceShipUpgrades => defenceShipUpgrades;
 }

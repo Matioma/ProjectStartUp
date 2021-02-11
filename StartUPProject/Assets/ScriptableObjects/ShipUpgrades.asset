@@ -37,3 +37,13 @@ MonoBehaviour:
     woodConsumption: 0
     goldConsumption: 0
     orangeConsumption: 0
+  attackShipUpgrades:
+  - crewMembers: 0
+    woodConsumption: 0
+    goldConsumption: 0
+    orangeConsumption: 2
+  - crewMembers: 0
+    woodConsumption: 0
+    goldConsumption: 0
+    orangeConsumption: 5
+  defenceShipUpgrades: []

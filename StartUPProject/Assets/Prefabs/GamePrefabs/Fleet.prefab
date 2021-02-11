@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storageConfiguration: {fileID: 11400000, guid: 1a56432eac715f342b86cc56847b4de4, type: 2}
   shipFactoryConfiguration: {fileID: 11400000, guid: efae74809dadab147bb618bf280d4d9d, type: 2}
+  upgradesConfig: {fileID: 11400000, guid: a35ea18ea15662d4f80d76b8e82ca559, type: 2}
+  pricesConfig: {fileID: 11400000, guid: 86e02f37913869a49b83f3b48a6c5f42, type: 2}
 --- !u!114 &2575951602274828857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4345a40af10f7ff42be5a96cafdbfae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipType: 4
+  shipType: 3
 --- !u!1 &2575951603676138425
 GameObject:
   m_ObjectHideFlags: 0
