@@ -44,13 +44,11 @@ public class AttackShip :Ship
             return;
         }
 
-
         AttackShipUpgrade upgradeData = this.upgradesConfiguration.AttackShipUpgrades[fleetModel.FleetLevel - 1];
         woodConsumption += upgradeData.woodConsumption;
         goldConsumption += upgradeData.goldConsumption;
         orangeConsumption += upgradeData.orangeConsumption;
     }
-
 
     public override void ApplyFleetUpgrades()
     {
