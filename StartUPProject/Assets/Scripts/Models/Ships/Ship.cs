@@ -16,8 +16,20 @@ public enum ShipTypes {
 
 public abstract class Ship: IShipActions
 {
+    public int goldPrice =1900;
+    public int woodPrice = 2090;
+    public int orangesPrice = 0;
+    public int GoldPrice => woodPrice;
+    public int WoodPrice => goldPrice;
+    public int OrangesPrice => orangesPrice;
+
+
+
     protected FleetModel fleetModel;
     protected ShipUpgradesConfiguration upgradesConfiguration;
+
+   
+
     protected void AddStorage(int gold, int wood, int oranges) {
         fleetModel.FleetResources.IncreaseStorage(ResourceType.Gold,gold);
         fleetModel.FleetResources.IncreaseStorage(ResourceType.Wood, wood);
