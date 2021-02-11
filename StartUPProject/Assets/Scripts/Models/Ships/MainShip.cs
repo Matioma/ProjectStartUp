@@ -22,7 +22,9 @@ public class MainShip : Ship
     {
         fleetModel.IncreaseFleetLevel();
     }
-
+    public override void ApplyFleetUpgrades()
+    {
+    }
     public override IShipActions CreateShip(FleetModel fleetModel, ShipPrice price)
     {
         base.CreateShip(fleetModel,price);

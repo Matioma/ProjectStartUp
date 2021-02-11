@@ -47,6 +47,8 @@ public abstract class Ship: IShipActions
     public abstract void Update();
     public abstract void Upgrade();
 
+    public abstract void ApplyFleetUpgrades();
+
     public abstract void OnDestroy();
     public virtual IShipActions CreateShip(FleetModel fleetModel, ShipPrice price) {
         this.fleetModel = fleetModel;

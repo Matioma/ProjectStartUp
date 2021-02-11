@@ -28,13 +28,24 @@ public class StorageShip : Ship
     public override void OnShipBuy()
     {
         base.OnShipBuy();
-        this.AddStorage(initialGoldStorage, initialWoodStorage, initialOrangeStorage);
+        ApplyFleetUpgrades();
     }
 
     public override void Update()
     {
-        Debug.Log("This is the Storage Ship");
     }
+
+
+    public override void ApplyFleetUpgrades()
+    {
+        for (int i = 0; i < fleetModel.FleetLevel; i++)
+        {
+            StorageShipUpgrade upgradeData = this.upgradesConfiguration.StorageUpgrades[i];
+            AddStorage(upgradeData.goldStorage, upgradeData.woodStorage, upgradeData.orangeStorage);
+        }
+    }
+
+
 
     public override void Upgrade()
     {
@@ -60,5 +71,7 @@ public class StorageShip : Ship
     {
         this.ReduceStorage(initialGoldStorage, initialWoodStorage, initialOrangeStorage);
     }
+
+  
 }
 

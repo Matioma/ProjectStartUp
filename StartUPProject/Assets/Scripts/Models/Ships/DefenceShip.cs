@@ -20,6 +20,10 @@ public class DefenceShip : Ship
         Debug.Log("Defence Ship Upgraded");
     }
 
+    public override void ApplyFleetUpgrades()
+    {
+    }
+
     public override IShipActions CreateShip(FleetModel fleetModel, ShipPrice price)
     {
         base.CreateShip(fleetModel,price);

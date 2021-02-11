@@ -19,6 +19,9 @@ public class TrainingShip : Ship
     {
         Debug.Log("Training Ship Upgraded");
     }
+    public override void ApplyFleetUpgrades()
+    {
+    }
 
     public override IShipActions CreateShip(FleetModel fleetModel, ShipPrice price)
     {

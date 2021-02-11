@@ -15,6 +15,7 @@ public class FleetModel : MonoBehaviour, IFleetAction
     ShipFactoryConfiguration shipFactoryConfiguration;
     [SerializeField]
     ShipUpgradesConfiguration upgradesConfig;
+    public ShipUpgradesConfiguration UpgradesConfig => upgradesConfig;
 
     [SerializeField]
     ShipPricesConfig pricesConfig;
@@ -98,7 +99,7 @@ public class FleetModel : MonoBehaviour, IFleetAction
                 break;
         }
 
-        newShip.Configure(upgradesConfig);
+
 
         if (shipAdded) {
             onFleetDataChanged?.Invoke();

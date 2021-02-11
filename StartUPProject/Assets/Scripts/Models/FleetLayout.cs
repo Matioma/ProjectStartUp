@@ -30,6 +30,11 @@ public class FleetLayout : MonoBehaviour
         if (fleetSlot != null)
         {
             fleetSlot.FillSlot(newShip, prefab);
+
+            
+            newShip.Configure(GetComponentInParent<FleetModel>().UpgradesConfig);
+
+            //newShip.Configure();
             newShip.OnShipBuy();
             return true;
         }

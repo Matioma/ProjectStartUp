@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storageUpgrades:
   - woodStorage: 120
-    goldStorage: 500
-    orangeStorage: 200
+    goldStorage: 150
+    orangeStorage: 300
     woodConsumption: 0
     goldConsumption: 0
     orangeConsumption: 0
@@ -28,6 +28,12 @@ MonoBehaviour:
   - woodStorage: 450
     goldStorage: 1300
     orangeStorage: 700
+    woodConsumption: 0
+    goldConsumption: 0
+    orangeConsumption: 0
+  - woodStorage: 500
+    goldStorage: 1900
+    orangeStorage: 1200
     woodConsumption: 0
     goldConsumption: 0
     orangeConsumption: 0
