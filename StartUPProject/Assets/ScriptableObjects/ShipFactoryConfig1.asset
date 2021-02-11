@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450bc8c0af489454389e4f184952724e, type: 3}
   m_Name: ShipFactoryConfig1
   m_EditorClassIdentifier: 
-  BaseShipPrefab: {fileID: 5338776835794269585, guid: 68c209872b271d04bad33f830bed2e20, type: 3}
-  StorageShipPrefab: {fileID: 5338776835794269585, guid: 68c209872b271d04bad33f830bed2e20, type: 3}
-  TrainingShipPrefab: {fileID: 5338776835794269585, guid: 68c209872b271d04bad33f830bed2e20, type: 3}
+  BaseShipPrefab: {fileID: 846464542781790832, guid: e4fd420a8e80afb419a3bb748641967c, type: 3}
+  StorageShipPrefab: {fileID: 2987992027006662129, guid: ca36ecf1a15ab5042bfc92d94a73f5ee, type: 3}
+  AttackShipPrefab: {fileID: 5338776835794269585, guid: 68c209872b271d04bad33f830bed2e20, type: 3}
   DefenceShipPrefab: {fileID: 5338776835794269585, guid: 68c209872b271d04bad33f830bed2e20, type: 3}

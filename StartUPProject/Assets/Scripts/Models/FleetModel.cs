@@ -88,7 +88,7 @@ public class FleetModel : MonoBehaviour, IFleetAction
                 newShip = new AttackShip().CreateShip(this, pricesConfig.attackShipPrice);
                 if (CanBuy(newShip))
                 {
-                    shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.StorageShipPrefab, shipType);
+                    shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.AttackShipPrefab, shipType);
                 }
                 break;
             //case ShipTypes.TrainingShip:
