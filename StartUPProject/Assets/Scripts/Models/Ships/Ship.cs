@@ -16,12 +16,10 @@ public enum ShipTypes {
 
 public abstract class Ship: IShipActions
 {
-    public int goldPrice =1900;
-    public int woodPrice = 2090;
-    public int orangesPrice = 0;
-    public int GoldPrice => woodPrice;
-    public int WoodPrice => goldPrice;
-    public int OrangesPrice => orangesPrice;
+    ShipPrice buildPrice;
+    public int GoldPrice => buildPrice.goldPrice;
+    public int WoodPrice => buildPrice.woodPrice;
+    public int OrangesPrice => buildPrice.orangesPrice;
 
 
 
@@ -46,8 +44,9 @@ public abstract class Ship: IShipActions
     public abstract void Upgrade();
 
     public abstract void OnDestroy();
-    public virtual IShipActions CreateShip(FleetModel fleetModel) {
+    public virtual IShipActions CreateShip(FleetModel fleetModel, ShipPrice price) {
         this.fleetModel = fleetModel;
+        this.buildPrice = price;
         return this;
     }
 

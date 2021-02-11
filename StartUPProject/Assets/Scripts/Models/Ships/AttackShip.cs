@@ -19,9 +19,9 @@ public class AttackShip :Ship
         Debug.Log("Defence Ship Upgraded");
     }
 
-    public override IShipActions CreateShip(FleetModel fleetModel)
+    public override IShipActions CreateShip(FleetModel fleetModel, ShipPrice price)
     {
-        base.CreateShip(fleetModel);
+        base.CreateShip(fleetModel,price);
         return this;
     }
     public override void OnDestroy()

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f158f55a20a2d6449e341593a34fde8, type: 3}
   m_Name: FleetStorage
   m_EditorClassIdentifier: 
-  oranges: 50
-  gold: 50
-  wood: 50
+  oranges: 1000
+  gold: 1000
+  wood: 1000

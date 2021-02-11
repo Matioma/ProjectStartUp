@@ -49,10 +49,9 @@ public class StorageShip : Ship
         AddStorage(upgradeData.goldStorage, upgradeData.woodStorage, upgradeData.orangeStorage);
     }
 
-    public override IShipActions CreateShip(FleetModel fleetModel)
+    public override IShipActions CreateShip(FleetModel fleetModel, ShipPrice price)
     {
-        base.CreateShip(fleetModel);
-        
+        base.CreateShip(fleetModel, price);
         return this;
     }
 

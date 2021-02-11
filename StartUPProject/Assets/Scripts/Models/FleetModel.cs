@@ -13,9 +13,11 @@ public class FleetModel : MonoBehaviour, IFleetAction
     StorageConfiguration storageConfiguration;
     [SerializeField]
     ShipFactoryConfiguration shipFactoryConfiguration;
-
     [SerializeField]
     ShipUpgradesConfiguration upgradesConfig;
+
+    [SerializeField]
+    ShipPricesConfig pricesConfig;
 
 
     [Header("Class Data")]
@@ -33,7 +35,6 @@ public class FleetModel : MonoBehaviour, IFleetAction
     Ship selectedShip = null;
 
     public event Action onFleetDataChanged;
-
 
     public event Action onSelectionChanged;
     public event Action onShipSelected;
@@ -57,30 +58,32 @@ public class FleetModel : MonoBehaviour, IFleetAction
 
         bool shipAdded = false;
 
+        
+
         switch (shipType)
         {
             case ShipTypes.MainShip:
-                newShip = new MainShip().CreateShip(this);
+                newShip = new MainShip().CreateShip(this, new ShipPrice());
                 //if (CanBuy(newShip)) {
                     shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.BaseShipPrefab, shipType);
                 //}
                 break;
             case ShipTypes.DefenceShip:
-                newShip = new DefenceShip().CreateShip(this);
+                newShip = new DefenceShip().CreateShip(this, pricesConfig.defenceShipPrice);
                 if (CanBuy(newShip))
                 {
                     shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.DefenceShipPrefab, shipType);
                 }
                 break;
             case ShipTypes.StorageShip:
-                newShip = new StorageShip().CreateShip(this);
+                newShip = new StorageShip().CreateShip(this, pricesConfig.storageShipPrice);
                 if (CanBuy(newShip))
                 {
                     shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.StorageShipPrefab, shipType);
                 }
                 break;
             case ShipTypes.AttackShip:
-                newShip = new AttackShip().CreateShip(this);
+                newShip = new AttackShip().CreateShip(this, pricesConfig.attackShipPrice);
                 if (CanBuy(newShip))
                 {
                     shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.StorageShipPrefab, shipType);
