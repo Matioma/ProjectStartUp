@@ -9,4 +9,6 @@ public interface IShipActions
     void OnShipBuy();
     void Upgrade();
     void OnDestroy();
+
+    void Configure(ShipUpgradesConfiguration config);
 }

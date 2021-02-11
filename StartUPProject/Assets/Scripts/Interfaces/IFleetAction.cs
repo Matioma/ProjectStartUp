@@ -7,7 +7,6 @@ public interface IFleetAction
     void AddShip(ShipTypes shipType);
 
     void SelectShip(Ship ship);
-
     Ship GetSelectedShip();
     void DeselectShip();
 }

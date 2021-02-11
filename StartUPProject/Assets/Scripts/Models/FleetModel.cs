@@ -14,6 +14,9 @@ public class FleetModel : MonoBehaviour, IFleetAction
     [SerializeField]
     ShipFactoryConfiguration shipFactoryConfiguration;
 
+    [SerializeField]
+    ShipUpgradesConfiguration upgradesConfig;
+
 
     [Header("Class Data")]
 
@@ -25,6 +28,10 @@ public class FleetModel : MonoBehaviour, IFleetAction
 
     int fleetLevel = 1;
     public int FleetLevel {get{ return fleetLevel; }}
+
+ 
+
+
 
     Ship selectedShip = null;
 
@@ -76,6 +83,8 @@ public class FleetModel : MonoBehaviour, IFleetAction
                 break;
         }
 
+        newShip.Configure(upgradesConfig);
+
         if (shipAdded) {
             onFleetDataChanged?.Invoke();
             fleetLayout.GetShips(typeof(Ship));
@@ -91,8 +100,10 @@ public class FleetModel : MonoBehaviour, IFleetAction
     public void IncreaseFleetLevel() {
         fleetLevel++;
         foreach (var ship in fleetLayout.GetShips(typeof(Ship))) {
-            ship.Upgrade();
+            if (ship.GetType() != typeof(MainShip))
+                ship.Upgrade();
         }
+        onFleetDataChanged?.Invoke();
     }
 
     public void SelectShip(Ship ship)

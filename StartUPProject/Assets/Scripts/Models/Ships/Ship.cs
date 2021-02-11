@@ -15,6 +15,7 @@ public enum ShipTypes {
 public abstract class Ship: IShipActions
 {
     protected FleetModel fleetModel;
+    protected ShipUpgradesConfiguration upgradesConfiguration;
     protected void AddStorage(int gold, int wood, int oranges) {
         fleetModel.FleetResources.IncreaseStorage(ResourceType.Gold,gold);
         fleetModel.FleetResources.IncreaseStorage(ResourceType.Wood, wood);
@@ -34,6 +35,11 @@ public abstract class Ship: IShipActions
     public virtual IShipActions CreateShip(FleetModel fleetModel) {
         this.fleetModel = fleetModel;
         return this;
+    }
+
+
+    public virtual void Configure(ShipUpgradesConfiguration config) {
+        this.upgradesConfiguration = config;
     }
 
     public void Selected()

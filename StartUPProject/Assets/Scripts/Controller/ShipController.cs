@@ -13,13 +13,11 @@ public class ShipController : MonoBehaviour
         fleetActions = FindObjectOfType<FleetModel>();
     }
 
-    public void UpdateShip() {
-        fleetActions.GetSelectedShip().Update();
+    public void UpgradeFleet() {
+        fleetActions.GetSelectedShip().Upgrade();
     }
 
     public void DeselectShip() {
-
         fleetActions.DeselectShip();
-        //fleetActions.GetSelectedShip()
     }
 }
