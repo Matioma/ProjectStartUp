@@ -9,4 +9,5 @@ public interface IFleetAction
     void SelectShip(Ship ship);
 
     Ship GetSelectedShip();
+    void DeselectShip();
 }

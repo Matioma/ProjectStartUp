@@ -101,6 +101,7 @@ public class FleetModel : MonoBehaviour, IFleetAction
         onSelectionChanged?.Invoke();
     }
     public void DeselectShip() {
+        selectedShip = null;
         onSelectionChanged?.Invoke();
     }
 
