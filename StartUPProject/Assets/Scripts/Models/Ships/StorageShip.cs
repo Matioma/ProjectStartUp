@@ -40,6 +40,8 @@ public class StorageShip : Ship
     {
         for (int i = 0; i < fleetModel.FleetLevel; i++)
         {
+            if (i >= this.upgradesConfiguration.StorageUpgrades.Length) { return; }
+
             StorageShipUpgrade upgradeData = this.upgradesConfiguration.StorageUpgrades[i];
             AddStorage(upgradeData.goldStorage, upgradeData.woodStorage, upgradeData.orangeStorage);
         }
