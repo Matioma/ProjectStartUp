@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CityView : MonoBehaviour
 {
@@ -21,11 +22,11 @@ public class CityView : MonoBehaviour
     TextMeshProUGUI defenceShipsCount;
 
     [SerializeField]
-    GameObject StorageShip;
+    Button BuyStorageShipButton;
     [SerializeField]
-    GameObject AttackShip;
+    Button BuyAttackShipButton;
     [SerializeField]
-    GameObject DefenceShip;
+    Button BuyDefenceShipButton;
 
     private void Awake()
     {
@@ -40,6 +41,10 @@ public class CityView : MonoBehaviour
 
         attackShipsCount.text = fleetModel.GetShipsCount(typeof(AttackShip)) + "/"  + fleetModel.FleetData.MaxAttackShips + " AttackShips";
         defenceShipsCount.text = fleetModel.GetShipsCount(typeof(DefenceShip)) + "/"+ fleetModel.FleetData.MaxDefenceShips + " DefenceShips";
+
+        BuyStorageShipButton.interactable = fleetModel.FleetData.HasAvailableSlot(typeof(StorageShip),fleetModel.GetShipsCount(typeof(StorageShip)));
+        BuyAttackShipButton.interactable = fleetModel.FleetData.HasAvailableSlot(typeof(AttackShip), fleetModel.GetShipsCount(typeof(AttackShip)));
+        BuyDefenceShipButton.interactable = fleetModel.FleetData.HasAvailableSlot(typeof(DefenceShip), fleetModel.GetShipsCount(typeof(DefenceShip)));
     }
 
     private void OnDestroy()
