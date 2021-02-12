@@ -78,7 +78,7 @@ public class FleetModel : MonoBehaviour, IFleetAction
                 break;
             case ShipTypes.StorageShip:
                 newShip = new StorageShip().CreateShip(this, pricesConfig.storageShipPrice);
-                if (CanBuy(newShip))
+                if (CanBuy(newShip) && fleetData.HasAvailableSlot(typeof(StorageShip), fleetLayout.GetShips(typeof(StorageShip)).Count))
                 {
                     shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.StorageShipPrefab, shipType);
                 }

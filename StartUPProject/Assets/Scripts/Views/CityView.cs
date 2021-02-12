@@ -17,9 +17,15 @@ public class CityView : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI attackShipsCount;
-
     [SerializeField]
     TextMeshProUGUI defenceShipsCount;
+
+    [SerializeField]
+    GameObject StorageShip;
+    [SerializeField]
+    GameObject AttackShip;
+    [SerializeField]
+    GameObject DefenceShip;
 
     private void Awake()
     {

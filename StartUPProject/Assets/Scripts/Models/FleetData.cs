@@ -7,7 +7,7 @@ public class FleetData
 {
     int maxAttackShips=0;
     int maxDefenseShips=0;
-    int maxStorageShips;
+    int maxStorageShips=1;
 
     public int MaxAttackShips => maxAttackShips;
     public int MaxDefenceShips => maxDefenseShips;
@@ -30,6 +30,13 @@ public class FleetData
         if (shipType == typeof(DefenceShip))
         {
             if (ShipCount < maxDefenseShips)
+            {
+                return true;
+            }
+        }
+        if (shipType == typeof(StorageShip))
+        {
+            if (ShipCount < maxStorageShips)
             {
                 return true;
             }
