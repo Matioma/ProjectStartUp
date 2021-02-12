@@ -2,6 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
+[System.Serializable]
+public class MainShipUpgrade
+{
+    [SerializeField]
+    public int maxAttackShips;
+    [SerializeField]
+    public int maxDefenceShips;
+}
 public class MainShip : Ship
 {
     public int woodStorage = 50;
@@ -20,7 +31,24 @@ public class MainShip : Ship
 
     public override void Upgrade()
     {
+        //fleetModel.FleetData
+
         fleetModel.IncreaseFleetLevel();
+        if (upgradesConfiguration == null)
+        {
+            Debug.LogError("This ship was not configured");
+        }
+
+        if (fleetModel.FleetLevel - 1 >= this.upgradesConfiguration.MainShipUpgrades.Length)
+        {
+            Debug.Log("MainShip reached its max Level");
+            return;
+        }
+
+
+        MainShipUpgrade upgradeData = this.upgradesConfiguration.MainShipUpgrades[fleetModel.FleetLevel - 1];
+        fleetModel.FleetData.IncreaseAttackShipsCapacity(upgradeData.maxAttackShips);
+        fleetModel.FleetData.IncreaseDefenceShipsCapacity(upgradeData.maxAttackShips);
     }
     public override void ApplyFleetUpgrades()
     {

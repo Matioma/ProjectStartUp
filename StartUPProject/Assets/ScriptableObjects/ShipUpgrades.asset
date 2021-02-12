@@ -12,6 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf222125f5595f64dae097f9f10ca04c, type: 3}
   m_Name: ShipUpgrades
   m_EditorClassIdentifier: 
+  mainShipUpgrades:
+  - maxAttackShips: 2
+    maxDefenceShips: 1
+  - maxAttackShips: 2
+    maxDefenceShips: 1
+  - maxAttackShips: 3
+    maxDefenceShips: 1
+  - maxAttackShips: 1
+    maxDefenceShips: 0
+  - maxAttackShips: 10
+    maxDefenceShips: 1
   storageUpgrades:
   - woodStorage: 120
     goldStorage: 150

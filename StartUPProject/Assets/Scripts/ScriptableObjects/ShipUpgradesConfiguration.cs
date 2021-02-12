@@ -6,6 +6,10 @@ using UnityEngine;
 public class ShipUpgradesConfiguration : ScriptableObject
 {
     [SerializeField]
+    MainShipUpgrade[] mainShipUpgrades;
+    public MainShipUpgrade[] MainShipUpgrades => mainShipUpgrades;
+
+    [SerializeField]
     StorageShipUpgrade[] storageUpgrades;
     public StorageShipUpgrade[] StorageUpgrades{get{ return storageUpgrades; }}
 
