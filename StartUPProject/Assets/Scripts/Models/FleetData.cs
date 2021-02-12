@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class FleetData
 {
-    int attackShips=0;
+    int maxAttackShips=0;
     int maxDefenseShips=0;
     int maxStorageShips;
 
+    public int MaxAttackShips => maxAttackShips;
+    public int MaxDefenceShips => maxDefenseShips;
 
     public void IncreaseAttackShipsCapacity(int amount) {
-        attackShips += amount;
+        maxAttackShips += amount;
     }
     public void IncreaseDefenceShipsCapacity(int amount)
     {
@@ -21,7 +23,7 @@ public class FleetData
     public bool HasAvailableSlot(Type shipType, int ShipCount)
     {
         if (shipType == typeof(AttackShip)) {
-            if (ShipCount < attackShips) {
+            if (ShipCount < maxAttackShips) {
                 return true;
             }              
         }

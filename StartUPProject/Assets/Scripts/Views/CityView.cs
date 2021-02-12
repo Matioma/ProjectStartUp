@@ -15,6 +15,11 @@ public class CityView : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI orangesAmount;
 
+    [SerializeField]
+    TextMeshProUGUI attackShipsCount;
+
+    [SerializeField]
+    TextMeshProUGUI defenceShipsCount;
 
     private void Awake()
     {
@@ -26,6 +31,9 @@ public class CityView : MonoBehaviour
         goldAmount.text = fleetModel.FleetResources.GetBalance(ResourceType.Gold) +"/" + fleetModel.FleetResources.GetStorageCap(ResourceType.Gold) + " Gold";
         woodAmount.text = fleetModel.FleetResources.GetBalance(ResourceType.Wood) + "/" + fleetModel.FleetResources.GetStorageCap(ResourceType.Wood) + " Wood";
         orangesAmount.text = fleetModel.FleetResources.GetBalance(ResourceType.Oranges) + "/" + fleetModel.FleetResources.GetStorageCap(ResourceType.Oranges) + " Oranges";
+
+        attackShipsCount.text = fleetModel.GetShipsCount(typeof(AttackShip)) + "/"  + fleetModel.FleetData.MaxAttackShips + " AttackShips";
+        defenceShipsCount.text = fleetModel.GetShipsCount(typeof(DefenceShip)) + "/"+ fleetModel.FleetData.MaxDefenceShips + " DefenceShips";
     }
 
     private void OnDestroy()

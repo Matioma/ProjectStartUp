@@ -107,6 +107,7 @@ public class FleetModel : MonoBehaviour, IFleetAction
     private void removeShip(IShipActions ship) {
         if (ship == null) return; 
         fleetLayout.RemoveShip(ship);
+        onFleetDataChanged?.Invoke();
     }
     public void AbandomShip()
     {
@@ -123,12 +124,14 @@ public class FleetModel : MonoBehaviour, IFleetAction
     }
 
 
+    public int GetShipsCount(Type shipType) {
+        return fleetLayout.GetShips(shipType).Count;
+    }
+
     void UpdateUI()
     {
         onFleetDataChanged?.Invoke();
     }
-
-
 
     public void SelectShip(Ship ship)
     {

@@ -33,8 +33,6 @@ public class FleetLayout : MonoBehaviour
 
             
             newShip.Configure(GetComponentInParent<FleetModel>().UpgradesConfig);
-
-            //newShip.Configure();
             newShip.OnShipBuy();
             return true;
         }

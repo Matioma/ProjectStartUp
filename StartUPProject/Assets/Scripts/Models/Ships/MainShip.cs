@@ -22,6 +22,8 @@ public class MainShip : Ship
     {
         base.OnShipBuy();
         this.AddStorage(goldStorage, woodStorage, orangeStorage);
+        ApplyFleetUpgrades();
+        Debug.Log("Wierd");
     }
 
     public override void Update()
@@ -52,6 +54,14 @@ public class MainShip : Ship
     }
     public override void ApplyFleetUpgrades()
     {
+        for (int i = 0; i < fleetModel.FleetLevel; i++)
+        {
+            if (i >= this.upgradesConfiguration.MainShipUpgrades.Length) { return; }
+
+            MainShipUpgrade upgradeData = upgradesConfiguration.MainShipUpgrades[i];
+            fleetModel.FleetData.IncreaseAttackShipsCapacity(upgradeData.maxAttackShips);
+            fleetModel.FleetData.IncreaseDefenceShipsCapacity(upgradeData.maxAttackShips);
+        }
     }
     public override IShipActions CreateShip(FleetModel fleetModel, ShipPrice price)
     {
