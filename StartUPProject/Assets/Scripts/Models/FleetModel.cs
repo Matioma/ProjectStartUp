@@ -7,7 +7,6 @@ using UnityEngine;
 [RequireComponent(typeof(FleetLayout))]
 public class FleetModel : MonoBehaviour, IFleetAction
 {
-
     [Header("Configuration")]
     [SerializeField]
     StorageConfiguration storageConfiguration;
@@ -22,11 +21,13 @@ public class FleetModel : MonoBehaviour, IFleetAction
 
 
     [Header("Class Data")]
-
     Storage fleetResourses;
     public Storage FleetResources { get { return fleetResourses; } }
 
     FleetLayout fleetLayout;
+
+    FleetData fleetData;
+    public FleetData FleetData => fleetData;
 
 
     int fleetLevel = 1;
@@ -45,7 +46,9 @@ public class FleetModel : MonoBehaviour, IFleetAction
     {
         if (storageConfiguration == null) { Debug.LogError("Make sure that the Fleet model has Storage configuration set up"); }
         fleetResourses = new Storage(storageConfiguration.gold, storageConfiguration.oranges, storageConfiguration.wood);
-        fleetLayout= GetComponent<FleetLayout>();
+        fleetData = new FleetData();
+
+        fleetLayout = GetComponent<FleetLayout>();
 
         fleetResourses.onStorageChange += UpdateUI;
     }
@@ -60,19 +63,15 @@ public class FleetModel : MonoBehaviour, IFleetAction
 
         bool shipAdded = false;
 
-        
-
         switch (shipType)
         {
             case ShipTypes.MainShip:
                 newShip = new MainShip().CreateShip(this, new ShipPrice());
-                //if (CanBuy(newShip)) {
-                    shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.BaseShipPrefab, shipType);
-                //}
+                shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.BaseShipPrefab, shipType);
                 break;
             case ShipTypes.DefenceShip:
                 newShip = new DefenceShip().CreateShip(this, pricesConfig.defenceShipPrice);
-                if (CanBuy(newShip))
+                if (CanBuy(newShip) && fleetData.HasAvailableSlot(typeof(DefenceShip), fleetLayout.GetShips(typeof(DefenceShip)).Count))
                 {
                     shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.DefenceShipPrefab, shipType);
                 }
@@ -86,15 +85,12 @@ public class FleetModel : MonoBehaviour, IFleetAction
                 break;
             case ShipTypes.AttackShip:
                 newShip = new AttackShip().CreateShip(this, pricesConfig.attackShipPrice);
-                if (CanBuy(newShip))
+                if (CanBuy(newShip) && fleetData.HasAvailableSlot(typeof(DefenceShip), fleetLayout.GetShips(typeof(AttackShip)).Count))
                 {
                     shipAdded = fleetLayout.FillSlot(newShip, shipFactoryConfiguration.AttackShipPrefab, shipType);
                 }
                 break;
-            //case ShipTypes.TrainingShip:
-            //    newShip = new TrainingShip().CreateShip(this);
-            //    shipAdded= fleetLayout.FillSlot(newShip, shipFactoryConfiguration.TrainingShipPrefab, shipType);
-            //    break;
+        
             default:
                 Debug.LogError("Unkown Ship Type");
                 break;
@@ -104,7 +100,7 @@ public class FleetModel : MonoBehaviour, IFleetAction
 
         if (shipAdded) {
             onFleetDataChanged?.Invoke();
-            fleetLayout.GetShips(typeof(Ship));
+            //fleetLayout.GetShips(typeof(Ship));
         }
     }
 
@@ -115,8 +111,6 @@ public class FleetModel : MonoBehaviour, IFleetAction
     public void AbandomShip()
     {
         removeShip(selectedShip);
-        Debug.Log("Ship removed");
-        //throw new NotImplementedException();
     }
 
     public void IncreaseFleetLevel() {
