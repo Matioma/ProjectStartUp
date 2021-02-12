@@ -112,8 +112,13 @@ public class FleetModel : MonoBehaviour, IFleetAction
         if (ship == null) return; 
         fleetLayout.RemoveShip(ship);
     }
-    
-    
+    public void AbandomShip()
+    {
+        removeShip(selectedShip);
+        Debug.Log("Ship removed");
+        //throw new NotImplementedException();
+    }
+
     public void IncreaseFleetLevel() {
         fleetLevel++;
         foreach (var ship in fleetLayout.GetShips(typeof(Ship))) {
@@ -153,4 +158,6 @@ public class FleetModel : MonoBehaviour, IFleetAction
     void OnDestroy() {
         fleetResourses.onStorageChange -= UpdateUI;
     }
+
+    
 }

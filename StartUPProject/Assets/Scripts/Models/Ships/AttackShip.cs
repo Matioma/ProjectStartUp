@@ -69,6 +69,6 @@ public class AttackShip :Ship
     }
     public override void OnDestroy()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

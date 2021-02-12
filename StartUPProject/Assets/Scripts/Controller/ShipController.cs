@@ -20,4 +20,8 @@ public class ShipController : MonoBehaviour
     public void DeselectShip() {
         fleetActions.DeselectShip();
     }
+
+    public void AbandomShip() {
+        fleetActions.AbandomShip();
+    }
 }

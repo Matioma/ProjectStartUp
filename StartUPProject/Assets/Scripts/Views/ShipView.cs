@@ -32,9 +32,12 @@ public class ShipView : MonoBehaviour
         
         if (selectedShip == null) return;
 
-
-        if (selectedShip.GetType() == typeof(MainShip)) {
+        if (selectedShip.GetType() == typeof(MainShip)){
             GetViewOfType(typeof(MainShipView)).Display();
+        }
+
+        if (selectedShip.GetType() == typeof(AttackShip)){
+            GetViewOfType(typeof(AttackShipView)).Display();
         }
     }
 
