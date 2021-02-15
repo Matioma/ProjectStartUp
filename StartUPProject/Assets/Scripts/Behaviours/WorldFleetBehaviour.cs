@@ -16,10 +16,13 @@ public class WorldFleetBehaviour : MonoBehaviour
     public void Init(WorldFleetData data) {
         worldFleetData = data;
     }
+
+
+
     public void SelectingShip() {
         if (Selected) return;
         
-        ParentDeselectallShips();
+        //ParentDeselectallShips();
         onSelect?.Invoke();
         Selected = true;
     }

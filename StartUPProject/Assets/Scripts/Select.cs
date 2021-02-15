@@ -30,7 +30,6 @@ public class Select : MonoBehaviour
             if (clickedTransform == null) return;
 
             onSelect?.Invoke();
-            Debug.Log("Test");
         }
     }
 }
