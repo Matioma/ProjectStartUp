@@ -100,7 +100,6 @@ public class FleetModel : MonoBehaviour, IFleetAction
 
         if (shipAdded) {
             onFleetDataChanged?.Invoke();
-            //fleetLayout.GetShips(typeof(Ship));
         }
     }
 
@@ -155,6 +154,4 @@ public class FleetModel : MonoBehaviour, IFleetAction
     void OnDestroy() {
         fleetResourses.onStorageChange -= UpdateUI;
     }
-
-    
 }
