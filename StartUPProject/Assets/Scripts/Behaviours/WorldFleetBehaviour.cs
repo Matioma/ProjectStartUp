@@ -10,7 +10,6 @@ public class WorldFleetBehaviour : MonoBehaviour
 
     public bool Selected=false;
 
-
     public UnityEvent onSelect;
     public UnityEvent onDeselect;
     public void Init(WorldFleetData data) {
@@ -37,5 +36,9 @@ public class WorldFleetBehaviour : MonoBehaviour
     public void ParentDeselectAllShips()
     {
         GetComponentInParent<WorldModel>().DeselectAllShips();
+    }
+
+    public void AttackShip() {
+        Debug.Log("//To Do Attack a ship");
     }
 }
