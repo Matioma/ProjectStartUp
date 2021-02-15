@@ -29,7 +29,18 @@ public class Select : MonoBehaviour
             Transform clickedTransform = hit.transform;
             if (clickedTransform == null) return;
 
-            onSelect?.Invoke();
+
+            WorldFleetBehaviour worldFleetBehaviour = clickedTransform.GetComponent<WorldFleetBehaviour>();
+            Debug.Log(worldFleetBehaviour);
+            if (worldFleetBehaviour != null)
+            {
+                worldFleetBehaviour.SelectingShip();
+            }else {
+                GetComponentInChildren<WorldModel>()?.DeselectAllShips();
+            }
+        }
+        else{
+            GetComponentInChildren<WorldModel>()?.DeselectAllShips();
         }
     }
 }

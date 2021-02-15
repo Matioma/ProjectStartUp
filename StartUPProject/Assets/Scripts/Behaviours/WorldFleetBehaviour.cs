@@ -22,20 +22,19 @@ public class WorldFleetBehaviour : MonoBehaviour
     public void SelectingShip() {
         if (Selected) return;
         
-        //ParentDeselectallShips();
+        ParentDeselectAllShips();
         onSelect?.Invoke();
         Selected = true;
     }
 
     public void DeselectShip() {
         if (!Selected) return;
-
         onDeselect?.Invoke();
         Selected = false;
     }
 
 
-    public void ParentDeselectallShips()
+    public void ParentDeselectAllShips()
     {
         GetComponentInParent<WorldModel>().DeselectAllShips();
     }
