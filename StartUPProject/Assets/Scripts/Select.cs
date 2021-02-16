@@ -38,8 +38,5 @@ public class Select : MonoBehaviour
                 GetComponentInChildren<WorldModel>()?.DeselectAllShips();
             }
         }
-        else{
-            GetComponentInChildren<WorldModel>()?.DeselectAllShips();
-        }
     }
 }
