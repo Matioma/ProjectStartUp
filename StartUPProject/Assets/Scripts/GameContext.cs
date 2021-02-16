@@ -19,6 +19,14 @@ public class GameContext : MonoBehaviour
     [SerializeField]
     GameObject battleScene;
 
+
+    [SerializeField]
+    GameStatusState battleState;
+    [SerializeField]
+    GameStatusState cityState;
+    [SerializeField]
+    GameStatusState mapState;
+
     void Start()
     {
         city.SetActive(true);
@@ -31,22 +39,32 @@ public class GameContext : MonoBehaviour
     }
 
     public void OpenScene(GameState state) {
-        if (map != null) map.SetActive(false);
-        if (city != null) city.SetActive(false);
-        if(battleScene != null) battleScene.SetActive(false);
+        battleState?.DisableState();
+        cityState?.DisableState();
+        mapState?.DisableState();
+
+
+
+
+        //if (map != null) map.SetActive(false);
+        //if (city != null) city.SetActive(false);
+        //if(battleScene != null) battleScene.SetActive(false);
 
         switch (state){
             case GameState.Map:
-                map.SetActive(true);
+                //map.SetActive(true);
+                mapState.ActivateState();
                 break;
             case GameState.City:
-                city.SetActive(true);
+                //city.SetActive(true);
+                cityState.ActivateState();
                 break;
             case GameState.Battle:
-                battleScene.SetActive(true);
+                //battleScene.SetActive(true);
+                battleState.ActivateState();
                 break;
             default:
-                Debug.Log("Unkown scene");
+                Debug.Log("Unkown state");
                 break;
         }
     }
