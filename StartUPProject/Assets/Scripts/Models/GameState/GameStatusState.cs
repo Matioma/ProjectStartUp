@@ -8,8 +8,12 @@ public class GameStatusState : MonoBehaviour
     public UnityEvent onStateActivate;
     public UnityEvent onDisableState;
 
-    [SerializeField]
     bool isActiveState=false;
+
+    private void Start()
+    {
+        isActiveState = gameObject.activeSelf;
+    }
 
     public void ActivateState() {
         if (isActiveState) return;
