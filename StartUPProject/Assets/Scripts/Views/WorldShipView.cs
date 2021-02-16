@@ -14,11 +14,13 @@ public class WorldShipView : MonoBehaviour
     private void Start()
     {
         Display();
+        Debug.Log("Cool");
     }
 
 
     void Display() {
         WorldFleetBehaviour data = GetComponentInParent<WorldFleetBehaviour>();
+        
 
         if (data.worldFleetData.isPlayer)
         {

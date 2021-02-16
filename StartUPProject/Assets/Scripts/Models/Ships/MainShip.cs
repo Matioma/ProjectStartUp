@@ -23,7 +23,6 @@ public class MainShip : Ship
         base.OnShipBuy();
         this.AddStorage(goldStorage, woodStorage, orangeStorage);
         ApplyFleetUpgrades();
-        Debug.Log("Wierd");
     }
 
     public override void Update()

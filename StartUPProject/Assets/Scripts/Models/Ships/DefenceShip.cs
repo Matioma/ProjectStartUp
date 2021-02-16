@@ -29,7 +29,6 @@ public class DefenceShip : Ship
     public override void Update()
     {
         base.Update();
-        Debug.Log(fleetModel.FleetResources.GetBalance(ResourceType.Oranges));
     }
 
 
