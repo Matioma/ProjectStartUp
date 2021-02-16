@@ -11,13 +11,13 @@ public enum GameState {
 
 public class GameContext : MonoBehaviour
 {
-    [SerializeField]
-    GameObject map;
-    [SerializeField]
-    GameObject city;
+    // [SerializeField]
+    // GameObject map;
+    // [SerializeField]
+    // GameObject city;
 
-    [SerializeField]
-    GameObject battleScene;
+    // [SerializeField]
+    // GameObject battleScene;
 
 
     [SerializeField]
@@ -27,16 +27,16 @@ public class GameContext : MonoBehaviour
     [SerializeField]
     GameStatusState mapState;
 
-    void Start()
-    {
-        city.SetActive(true);
-        map.SetActive(false);
-    }
+    // void Start()
+    // {
+    //     city.SetActive(true);
+    //     map.SetActive(false);
+    // }
 
-    public void SwitchGameState() {
-        city.SetActive(!city.activeSelf);
-        map.SetActive(!map.activeSelf);    
-    }
+    // public void SwitchGameState() {
+    //     city.SetActive(!city.activeSelf);
+    //     map.SetActive(!map.activeSelf);    
+    // }
 
     public void OpenScene(GameState state) {
         battleState?.DisableState();

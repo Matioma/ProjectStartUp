@@ -17,8 +17,8 @@ public class VictoryView : MonoBehaviour
 
     private void OnEnable()
     {
-        gold.text = resources.Gold.ToString() + "Gold";
-        wood.text = resources.Wood.ToString() + "Wood";
-        oranges.text = resources.Oranges.ToString() + "Oranges";
+        // gold.text = resources.Gold.ToString() + "Gold";
+        // wood.text = resources.Wood.ToString() + "Wood";
+        // oranges.text = resources.Oranges.ToString() + "Oranges";
     }
 }
