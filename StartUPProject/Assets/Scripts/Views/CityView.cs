@@ -39,8 +39,8 @@ public class CityView : MonoBehaviour
         woodAmount.text = fleetModel.FleetResources.GetBalance(ResourceType.Wood) + "/" + fleetModel.FleetResources.GetStorageCap(ResourceType.Wood) + " Wood";
         orangesAmount.text = fleetModel.FleetResources.GetBalance(ResourceType.Oranges) + "/" + fleetModel.FleetResources.GetStorageCap(ResourceType.Oranges) + " Oranges";
 
-        attackShipsCount.text = fleetModel.GetShipsCount(typeof(AttackShip)) + "/"  + fleetModel.FleetData.MaxAttackShips + " AttackShips";
-        defenceShipsCount.text = fleetModel.GetShipsCount(typeof(DefenceShip)) + "/"+ fleetModel.FleetData.MaxDefenceShips + " DefenceShips";
+        attackShipsCount.text = fleetModel.GetShipsCount(typeof(AttackShip)) + "/"  + fleetModel.FleetData.MaxAttackShips;
+        defenceShipsCount.text = fleetModel.GetShipsCount(typeof(DefenceShip)) + "/"+ fleetModel.FleetData.MaxDefenceShips;
 
         BuyStorageShipButton.interactable = fleetModel.FleetData.HasAvailableSlot(typeof(StorageShip),fleetModel.GetShipsCount(typeof(StorageShip)));
         BuyAttackShipButton.interactable = fleetModel.FleetData.HasAvailableSlot(typeof(AttackShip), fleetModel.GetShipsCount(typeof(AttackShip)));

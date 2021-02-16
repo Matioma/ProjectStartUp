@@ -11,25 +11,26 @@ public class WorldShipView : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI level;
 
+
+    FleetModel fleetModel;
+
     private void Start()
     {
         Display();
-        Debug.Log("Cool");
+        fleetModel = FindObjectOfType<FleetModel>();
     }
-
 
     void Display() {
         WorldFleetBehaviour data = GetComponentInParent<WorldFleetBehaviour>();
         
-
         if (data.worldFleetData.isPlayer)
         {
             name.text = "Your Ship";
+            level.text ="1";
         }
         else {
             name.text = "Player" + Random.Range(1, 100);
+            level.text = "1";
         }
-
     }
-
 }
