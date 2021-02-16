@@ -7,7 +7,6 @@ public class VictoryResources : MonoBehaviour
     [SerializeField]
     FleetModel fleetModel;
 
-
     [SerializeField]
     int gold;
     public int Gold => gold;
@@ -26,7 +25,6 @@ public class VictoryResources : MonoBehaviour
         wood = Random.Range(10, 100) * 10;
         oranges = Random.Range(10, 100) * 10;
     }
-
 
     public void SendResources() {
         fleetModel.FleetResources.AddResource(ResourceType.Gold, gold);
