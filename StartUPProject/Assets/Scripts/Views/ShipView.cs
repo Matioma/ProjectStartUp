@@ -10,8 +10,6 @@ public class ShipView : MonoBehaviour
     [SerializeField]
     ShipActionsView[] views;
 
-    //Dictionary<Type, ShipActionsView> shipType2ViewMap = new Dictionary<Type, ShipActionsView>();
-
     private void Awake()
     {
         fleetModel = FindObjectOfType<FleetModel>();
@@ -21,10 +19,6 @@ public class ShipView : MonoBehaviour
 
     private void Start()
     {
-        //shipType2ViewMap[typeof(MainShip)] = GetViewOfType(typeof(MainShipView));
-
-
-
         foreach (var view in views) {
             view.Init(fleetModel);
         }
@@ -35,6 +29,7 @@ public class ShipView : MonoBehaviour
             view.Hide();
         }
         Ship selectedShip = fleetModel.GetSelectedShip();
+        
         if (selectedShip == null) return;
 
         if (selectedShip.GetType() == typeof(MainShip)){

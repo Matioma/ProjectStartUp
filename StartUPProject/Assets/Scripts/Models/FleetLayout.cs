@@ -7,6 +7,7 @@ public class FleetLayout : MonoBehaviour
     List<FleetSlot> fleetSlots = new List<FleetSlot>();
 
 
+
     private void Awake()
     {
         foreach (var slot in GetComponentsInChildren<FleetSlot>()) {

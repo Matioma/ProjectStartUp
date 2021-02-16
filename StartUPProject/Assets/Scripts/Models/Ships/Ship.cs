@@ -65,6 +65,7 @@ public abstract class Ship: IShipActions
         return this;
     }
 
+
     public virtual void Configure(ShipUpgradesConfiguration config) {
         this.upgradesConfiguration = config;
     }
