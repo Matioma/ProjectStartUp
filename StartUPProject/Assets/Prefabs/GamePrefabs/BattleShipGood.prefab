@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 374567556197882784}
   - component: {fileID: 4822274717966600154}
   - component: {fileID: 8695508568402303138}
+  - component: {fileID: 1923372591845340189}
   m_Layer: 0
   m_Name: BattleShipGood
   m_TagString: Untagged
@@ -75,6 +76,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!111 &1923372591845340189
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338776835794269585}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: b5abdd48782f6814ab80101b08fd43f3, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: b5abdd48782f6814ab80101b08fd43f3, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &2348636781639302650
 PrefabInstance:
   m_ObjectHideFlags: 0
