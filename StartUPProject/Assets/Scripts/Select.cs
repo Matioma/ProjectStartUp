@@ -77,11 +77,6 @@ public class Select : MonoBehaviour
                 selectedShip.SelectingShip();
                 return;
             }
-            else
-            {
-                //GetComponentInChildren<WorldModel>()?.DeselectAllShips();
-            }
-
         }
         else
         {
