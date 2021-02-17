@@ -43,6 +43,5 @@ public class WorldFleetBehaviour : MonoBehaviour
     }
 
     public void AttackShip() {
-        Debug.Log("//To Do Attack a ship");
     }
 }
