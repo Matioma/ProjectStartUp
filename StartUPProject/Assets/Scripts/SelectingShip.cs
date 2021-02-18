@@ -19,9 +19,6 @@ public class SelectingShip : MonoBehaviour
         }
     }
     void SelectSlot() {
-        //if (!EventSystem.current.IsPointerOverGameObject()) return;
-
-
         if (EventSystem.current.IsPointerOverGameObject())
         {
             Debug.Log(EventSystem.current.currentSelectedGameObject);

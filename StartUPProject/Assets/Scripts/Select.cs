@@ -20,20 +20,12 @@ public class Select : MonoBehaviour
             SelectObject();
         }
 
-        //Debug.Log(IsMouseOverUI());
 
         if (Input.GetMouseButtonDown(0))
         {
             SelectObject();
         }
 
-        //if (Input.GetMouseButtonDown(0) == true && EventSystem.current.IsPointerOverGameObject())
-        //{
-        //    if (EventSystem.current.currentSelectedGameObject.gameObject.tag == "Button") {
-        //        Debug.Log(EventSystem.current.currentSelectedGameObject.gameObject.tag);
-        //    }
-        //    //Debug.Log(EventSystem.current.currentSelectedGameObject.gameObject.name);
-        //}
     }
 
     bool IsMouseOverUI() {
@@ -51,13 +43,6 @@ public class Select : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        //if (EventSystem.current.IsPointerOverGameObject()) { 
-        //    if (EventSystem.current.currentSelectedGameObject.gameObject.tag == "Button")
-        //    {
-        //        //Debug.Log(EventSystem.current.currentSelectedGameObject.gameObject.tag);
-        //        return;
-        //    }
-        //}
 
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
