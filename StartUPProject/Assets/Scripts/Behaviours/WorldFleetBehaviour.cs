@@ -17,8 +17,6 @@ public class WorldFleetBehaviour : MonoBehaviour
         worldFleetData = data;
     }
 
-
-
     public void SelectingShip() {
         if (worldFleetData.isPlayer) return;
         if (Selected) return;
@@ -36,13 +34,12 @@ public class WorldFleetBehaviour : MonoBehaviour
         Selected = false;
     }
 
-
     public void ParentDeselectAllShips()
     {
         GetComponentInParent<WorldModel>().DeselectAllShips();
     }
 
     public void AttackShip() {
-        Debug.Log("//To Do Attack a ship");
+        //Debug.Log("//To Do Attack a ship");
     }
 }

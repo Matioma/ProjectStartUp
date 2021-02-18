@@ -70,7 +70,11 @@ public class Select : MonoBehaviour
             WorldFleetBehaviour worldFleetBehaviour = clickedTransform.GetComponent<WorldFleetBehaviour>();
             if (worldFleetBehaviour != null)
             {
+                if (worldFleetBehaviour.worldFleetData.isPlayer) return;
+
                 if (selectedShip != null) selectedShip.DeselectShip();
+
+                
 
                 onSelect?.Invoke();
                 selectedShip = worldFleetBehaviour;
