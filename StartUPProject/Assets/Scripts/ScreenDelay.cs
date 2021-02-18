@@ -15,7 +15,7 @@ public class ScreenDelay : MonoBehaviour
     float timeToShowVictoryScreen;
     float timer;
 
-    bool timeElapsed;
+    bool timeElapsed=true;
 
     void Start()
     {
