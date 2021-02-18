@@ -19,6 +19,19 @@ public class SelectingShip : MonoBehaviour
         }
     }
     void SelectSlot() {
+        //if (!EventSystem.current.IsPointerOverGameObject()) return;
+
+
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            Debug.Log(EventSystem.current.currentSelectedGameObject);
+            if (EventSystem.current.currentSelectedGameObject != null)
+                if (EventSystem.current.currentSelectedGameObject.gameObject.layer == 5)
+                {
+                    return;
+                }
+        }
+
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100.0f))

@@ -85,6 +85,7 @@ public class Select : MonoBehaviour
         else
         {
             if (EventSystem.current.IsPointerOverGameObject()) {
+                if(EventSystem.current.currentSelectedGameObject.gameObject!=null)
                 if (EventSystem.current.currentSelectedGameObject.gameObject.layer == 5) {
                     return;
                 }

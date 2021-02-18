@@ -53,6 +53,7 @@ public class FleetSlot : MonoBehaviour
 
     public void Selected()
     {
+        Debug.Log("Selected");
         shipActions.Selected();
     }
 
