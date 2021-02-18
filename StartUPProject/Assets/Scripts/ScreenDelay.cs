@@ -45,6 +45,7 @@ public class ScreenDelay : MonoBehaviour
         if(!timeElapsed && timer <= 0)
         {
             DisplayVictoryScreen();
+            timeElapsed = true;
         }
     }
     void DisplayVictoryScreen() {
