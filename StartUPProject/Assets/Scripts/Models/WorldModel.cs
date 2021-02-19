@@ -8,6 +8,9 @@ public class WorldModel : MonoBehaviour
     [SerializeField]
     GameObject worldFleetPrefab;
     [SerializeField]
+    GameObject playerFleetPrefab;
+
+    [SerializeField]
     List<WorldFleetData> fleets;
 
     private void Awake()
@@ -26,8 +29,19 @@ public class WorldModel : MonoBehaviour
             DestroyImmediate(transform.GetChild(0).gameObject);
         }
         foreach (var fleet in fleets) {
-            
-            var obj = Instantiate(worldFleetPrefab, transform);
+            GameObject obj = null;
+            if (fleet.isPlayer)
+            {
+                //Debug.Log("Is Player");
+                obj =Instantiate(playerFleetPrefab, transform);
+            }
+            else {
+                obj =Instantiate(worldFleetPrefab, transform);
+            }
+
+
+
+            //var obj = Instantiate(worldFleetPrefab, transform);
             obj.GetComponent<WorldFleetBehaviour>().Init(fleet);
             obj.transform.position = new Vector3(fleet.position.x, transform.position.y, fleet.position.y); 
         }
