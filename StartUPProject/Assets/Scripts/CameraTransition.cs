@@ -12,22 +12,26 @@ public class CameraTransition : MonoBehaviour
     Transform targetTransform;
     float timer;
 
-    public void Start(){
+   void Start(){
         
     }
 
-    public void Update()
+    void Update()
     {
+        if (referenceTransform == null || targetTransform == null) return;
+
         Transition();        
     }
 
-    public void StartTransition(Transform source, Transform target) {
+    public void StartTransition(Transform target) {
         timer = 0;
-        referenceTransform = source;
+        referenceTransform = camera.transform;
         targetTransform = target;
     }
 
     public void Transition() {
+        Debug.Log(timer);
+
         timer += Time.deltaTime;
         transform.rotation = Quaternion.Slerp(referenceTransform.rotation, targetTransform.rotation, timer);
         transform.position = Vector3.Slerp(referenceTransform.position, targetTransform.position, timer);
