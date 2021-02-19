@@ -21,7 +21,7 @@ public class SelectingShip : MonoBehaviour
     void SelectSlot() {
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            Debug.Log(EventSystem.current.currentSelectedGameObject);
+            //Debug.Log(EventSystem.current.currentSelectedGameObject);
             if (EventSystem.current.currentSelectedGameObject != null)
                 if (EventSystem.current.currentSelectedGameObject.gameObject.layer == 5)
                 {
