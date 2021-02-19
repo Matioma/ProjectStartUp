@@ -10,6 +10,9 @@ public class CameraTransition : MonoBehaviour
 
     Transform referenceTransform;
     Transform targetTransform;
+
+    [SerializeField]
+    float transitionTime;
     float timer;
 
    void Start(){
@@ -30,10 +33,11 @@ public class CameraTransition : MonoBehaviour
     }
 
     public void Transition() {
-        Debug.Log(timer);
+        //Debug.Log(timer);
 
-        timer += Time.deltaTime;
-        transform.rotation = Quaternion.Slerp(referenceTransform.rotation, targetTransform.rotation, timer);
-        transform.position = Vector3.Slerp(referenceTransform.position, targetTransform.position, timer);
+        timer += Time.deltaTime/transitionTime;
+        Debug.Log(Quaternion.Slerp(referenceTransform.rotation, targetTransform.rotation, timer));
+        camera.transform.rotation = Quaternion.Slerp(referenceTransform.rotation, targetTransform.rotation, timer);
+        camera.transform.position = Vector3.Slerp(referenceTransform.position, targetTransform.position, timer);
     }
 }
